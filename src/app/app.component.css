@@ -1,0 +1,45 @@
+.layout {
+  min-height: 100vh;
+}
+nz-sider {
+  background-color: #1DA57A;
+  
+}
+
+.ant-layout-sider-zero-width-trigger {
+  background: #1DA57A;
+}
+nz-layout {
+  background: #fcfcfc;
+}
+
+/*a {
+  color: #41418c;
+}
+
+  a:hover {
+    color: #71a7ce;
+  }*/
+ul {
+  list-style-type: none;
+}
+
+.logo {
+  height: 32px;
+  background: #f9f9f9;
+  margin: 16px;
+}
+
+nz-header {
+  background: #fff;
+  padding: 0;
+}
+
+nz-content {
+  margin: 24px 16px 0;
+}
+
+
+.inner-content {
+  background: #fff;
+}
