@@ -1,18 +1,4 @@
-h5{
-    color:white;
-}
-
-li {
-  font-size: 2em
-}
-
 .logo {
   font-size: 2.5em;
   font-weight: bold;
-}
-
-@media screen and (min-width: 1000px) {
-  img {
-    height: 550px;
-  }
 }

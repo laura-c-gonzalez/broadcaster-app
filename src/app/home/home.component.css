@@ -1,0 +1,14 @@
+h5 {
+  color: white;
+}
+
+li {
+  font-size: 2em
+}
+
+
+@media screen and (min-width: 1000px) {
+  img {
+    height: 550px;
+  }
+}
