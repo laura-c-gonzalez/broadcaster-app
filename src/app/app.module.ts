@@ -16,19 +16,18 @@ import { GenreSearchComponent } from './search-music/genre-search/genre-search.c
 import { ArtistSearchComponent } from './search-music/artist-search/artist-search.component';
 import { AuthLoginComponent } from './shared-services/auth-login/auth-login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { NZ_I18N } from 'ng-zorro-antd/i18n';
-import { en_US } from 'ng-zorro-antd/i18n';
-import { registerLocaleData } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { LoginComponent } from './login/login.component';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     HomeComponent,
     UploadSongsComponent,
     SearchMusicComponent,
@@ -43,19 +42,19 @@ registerLocaleData(en);
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     SharedServiceModule,
-    FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    NzLayoutModule
+    BrowserAnimationsModule
   ],
   exports: [
     AppComponent,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
