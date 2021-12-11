@@ -1,15 +1,19 @@
 <div class="container">
-  <form [formGroup]="loginForm">
+  <form [formGroup]="loginForm" class="needs-validation was-validated " novalidate>
     <h4 class="col-md-6">Login</h4>
     <div class="col-md-6">
-      <label for="inputEmail4" class="form-label">Email</label>
-      <input type="email" class="form-control" id="inputEmail4" name="email"
+      <label for="inputEmail" class="form-label">Email</label>
+      <input type="email" class="form-control" id="inputEmail" name="email"
              placeholder="Email" formControlName="email" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" name="password"
+      <label for="inputPassword" class="form-label">Password</label>
+      <input type="password" class="form-control" id="inputPassword" name="password"
              placeholder="Password" formControlName="password" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
     </div>
   </form>
 </div>
