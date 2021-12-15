@@ -15,13 +15,18 @@ export class LoginComponent implements OnInit {
       updateOn:'blur'
       }],
     password: ['', [Validators.required, Validators.minLength(8),
-      createPasswordStrengthValidator()]],
+      createPasswordStrengthValidator()
+    ]],
   });
 
   constructor(private fb: FormBuilder) { }
 
+  get f() { return this.loginForm.controls; }
 
   ngOnInit(): void {
   }
+
+  get email() { return this.loginForm.controls['email']; }
+  get password() { return this.loginForm.controls['password'];;}
 
 }

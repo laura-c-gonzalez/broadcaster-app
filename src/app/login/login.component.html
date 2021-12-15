@@ -1,17 +1,27 @@
 <div class="container">
-  <form [formGroup]="loginForm" class="needs-validation was-validated " novalidate>
+  <form [formGroup]="loginForm" class="was-validated">
     <h4 class="col-md-6">Login</h4>
     <div class="col-md-6">
       <label for="inputEmail" class="form-label">Email</label>
-      <input type="email" class="form-control" id="inputEmail" name="email"
-             placeholder="Email" formControlName="email" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
+      <input type="email"
+             class="form-control"
+             id="inputEmail" name="email"
+             placeholder="Email"
+             formControlName="email"
+             required>
+      <div class="invalid-feedback" *ngIf="email.touched">Please enter valid email</div>
+      <div class="invalid-feedback" *ngIf="email.errors?.['required']">The email field is mandatory</div>
     </div>
     <div class="col-md-6">
-      <label for="inputPassword" class="form-label">Password</label>
-      <input type="password" class="form-control" id="inputPassword" name="password"
-             placeholder="Password" formControlName="password" required>
+      <label for="inputPassword"
+             class="form-label">Password</label>
+      <input type="password"
+             class="form-control"
+             id="inputPassword"
+             name="password"
+             placeholder="Password"
+             formControlName="password"
+             required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
@@ -19,10 +29,9 @@
 </div>
 
 
-<pre>
+<!--<pre>
   {{loginForm.value | json}}
-</pre>
-
-<pre>
+</pre>-->
+<!--<pre>
   {{loginForm.valid}}
-</pre>
+</pre>-->
