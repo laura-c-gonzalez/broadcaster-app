@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="loginForm" class="was-validated">
+  <form [formGroup]="loginForm" class="was-validated" novalidate>
     <h4 class="col-md-6">Login</h4>
     <div class="col-md-6">
       <label for="inputEmail" class="form-label">Email</label>
@@ -9,8 +9,8 @@
              placeholder="Email"
              formControlName="email"
              required>
-      <div class="invalid-feedback" *ngIf="email.touched">Please enter valid email</div>
-      <div class="invalid-feedback" *ngIf="email.errors?.['required']">The email field is mandatory</div>
+
+      <div class="invalid-feedback" *ngIf="email.touched">Please enter a valid email</div>
     </div>
     <div class="col-md-6">
       <label for="inputPassword"
@@ -29,9 +29,9 @@
 </div>
 
 
-<!--<pre>
+<pre>
   {{loginForm.value | json}}
-</pre>-->
-<!--<pre>
+</pre>
+<pre>
   {{loginForm.valid}}
-</pre>-->
+</pre>

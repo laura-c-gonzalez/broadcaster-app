@@ -1,1 +1,4 @@
-
+.form-control.ng-untouched {
+  border-color: #cecece;
+  background-image: none;
+}
