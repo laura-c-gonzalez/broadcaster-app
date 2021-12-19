@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder,  Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { createPasswordStrengthValidator } from './validators/password-strength.validator';
 
 @Component({
@@ -8,25 +8,29 @@ import { createPasswordStrengthValidator } from './validators/password-strength.
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  loginForm = this.fb.group({
-    email: ['', {
-      Validators: [Validators.required, Validators.email],
-      updateOn:'blur'
-      }],
-    password: ['', [Validators.required, Validators.minLength(8),
-      createPasswordStrengthValidator()
-    ]],
-  });
+  loginForm!: FormGroup;
 
   constructor(private fb: FormBuilder) { }
 
-  get f() { return this.loginForm.controls; }
 
   ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', {
+        validators: [Validators.required, Validators.email],
+        updateOn: 'blur'
+      }],
+      password: ['', [Validators.required,
+      Validators.minLength(8),
+      createPasswordStrengthValidator()
+      ]],
+    });
   }
 
-  get email() { return this.loginForm.controls['email']; }
-  get password() { return this.loginForm.controls['password'];;}
+  get emailControl() {
+    return this.loginForm.controls['email'];
+  }
+  get passwordControl() {
+    return this.loginForm.controls['password'];
+  }
 
 }

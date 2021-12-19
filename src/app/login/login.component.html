@@ -5,26 +5,41 @@
       <label for="inputEmail" class="form-label">Email</label>
       <input type="email"
              class="form-control"
-             id="inputEmail" name="email"
-             placeholder="Email"
+             id="inputEmail"
+             placeholder="Enter Email"
              formControlName="email"
+             [ngClass]="{'is-invalid': emailControl.errors &&
+             (emailControl.touched || emailControl.dirty),
+             'is-valid':emailControl.valid}"
              required>
-
-      <div class="invalid-feedback" *ngIf="email.touched">Please enter a valid email</div>
+      <div class="invalid-feedback"
+           *ngIf="emailControl.touched">Please enter a valid email</div>
     </div>
     <div class="col-md-6">
       <label for="inputPassword"
              class="form-label">Password</label>
-      <input type="password"
+      <input type="text"
              class="form-control"
              id="inputPassword"
-             name="password"
-             placeholder="Password"
+             placeholder="Enter Password"
              formControlName="password"
+             [ngClass]="{'is-invalid': passwordControl.errors &&
+             (passwordControl.touched || passwordControl.dirty),
+             'is-valid':emailControl.valid}"
              required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
+      <div class="invalid-feedback"
+           *ngIf="passwordControl.errors">
+        <div *ngIf="passwordControl.errors?.['minlength']">
+          Password length must be greater {{passwordControl.errors?.['minlength'].requiredLength}} characters.
+        </div>
+        <div *ngIf="passwordControl.errors?.['invalidPassword']">
+          Password must have upper case, lower case, numeric value.
+        </div>
+      </div>
+
     </div>
+
+
   </form>
 </div>
 
@@ -35,3 +50,8 @@
 <pre>
   {{loginForm.valid}}
 </pre>
+<pre>
+  {{passwordControl.errors | json}}
+</pre>
+
+<!--*ngIf="passwordControl.errors | onlyOneError:['minlength', 'invlidPassword'] as error"-->
