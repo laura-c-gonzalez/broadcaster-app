@@ -23,11 +23,12 @@
              [ngClass]="{'is-invalid': passwordControl.errors &&
              (passwordControl.touched || passwordControl.dirty)}"
              required>
-      <div class="invalid-feedback">
-        <div *ngIf="passwordControl.errors?.['minlength']">
-          Password length must be greater {{passwordControl.errors?.['minlength'].requiredLength}} characters.
+      <div class="invalid-feedback"
+           *ngIf="passwordControl.errors | onlyOneError:['minlength','invalidPassword'] as displayError">
+        <div *ngIf="displayError?.['minlength']">
+          Password length must be greater {{displayError?.['minlength'].requiredLength}} characters.
         </div>
-        <div *ngIf="passwordControl.errors?.['invalidPassword']">
+        <div *ngIf="displayError?.['invalidPassword']">
           Password must have upper case, lower case, numeric value.
         </div>
       </div>
@@ -38,7 +39,6 @@
   </form>
 </div>
 
-
 <pre>
   {{loginForm.value | json}}
 </pre>
@@ -48,6 +48,7 @@
 <pre>
   {{passwordControl.errors | json}}
 </pre>
+
 
 <!--*ngIf="passwordControl.errors | onlyOneError:['minlength', 'invlidPassword'] as error"-->
 

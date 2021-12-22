@@ -20,13 +20,10 @@ export class LoginComponent implements OnInit {
         updateOn: 'blur'
       }],
 
-      password: ['', {
-        validators: [Validators.required,
-        Validators.minLength(8),
-          createPasswordStrengthValidator()
-        
-        ], updateOn: 'blur'
-    },]
+      password: ['', [Validators.required,
+      Validators.minLength(8),
+      createPasswordStrengthValidator()
+      ]],
     });
   }
 
