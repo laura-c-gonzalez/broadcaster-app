@@ -8,9 +8,6 @@
              id="inputEmail"
              placeholder="Enter Email"
              formControlName="email"
-             [ngClass]="{'is-invalid': emailControl.errors &&
-             (emailControl.touched || emailControl.dirty),
-             'is-valid':emailControl.valid}"
              required>
       <div class="invalid-feedback"
            *ngIf="emailControl.touched">Please enter a valid email</div>
@@ -18,17 +15,15 @@
     <div class="col-md-6">
       <label for="inputPassword"
              class="form-label">Password</label>
-      <input type="text"
+      <input type="email"
              class="form-control"
              id="inputPassword"
              placeholder="Enter Password"
              formControlName="password"
              [ngClass]="{'is-invalid': passwordControl.errors &&
-             (passwordControl.touched || passwordControl.dirty),
-             'is-valid':emailControl.valid}"
+             (passwordControl.touched || passwordControl.dirty)}"
              required>
-      <div class="invalid-feedback"
-           *ngIf="passwordControl.errors">
+      <div class="invalid-feedback">
         <div *ngIf="passwordControl.errors?.['minlength']">
           Password length must be greater {{passwordControl.errors?.['minlength'].requiredLength}} characters.
         </div>
@@ -55,3 +50,8 @@
 </pre>
 
 <!--*ngIf="passwordControl.errors | onlyOneError:['minlength', 'invlidPassword'] as error"-->
+
+
+<!--[ngClass]="{'is-invalid': emailControl.errors &&
+             (emailControl.touched || emailControl.dirty),
+             'is-valid':emailControl.valid}"-->

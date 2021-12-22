@@ -19,12 +19,17 @@ export class LoginComponent implements OnInit {
         validators: [Validators.required, Validators.email],
         updateOn: 'blur'
       }],
-      password: ['', [Validators.required,
-      Validators.minLength(8),
-      createPasswordStrengthValidator()
-      ]],
+
+      password: ['', {
+        validators: [Validators.required,
+        Validators.minLength(8),
+          createPasswordStrengthValidator()
+        
+        ], updateOn: 'blur'
+    },]
     });
   }
+
 
   get emailControl() {
     return this.loginForm.controls['email'];
@@ -34,3 +39,11 @@ export class LoginComponent implements OnInit {
   }
 
 }
+
+//password: ['', {
+//      validators: [Validators.required,
+//      Validators.minLength(8),
+//      createPasswordStrengthValidator()],
+//      updateOn: 'blur'
+//    }],
+//    });
