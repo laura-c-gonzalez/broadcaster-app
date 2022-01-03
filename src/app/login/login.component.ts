@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-
   get emailControl() {
     return this.loginForm.controls['email'];
   }
@@ -35,12 +34,6 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls['password'];
   }
 
+
 }
 
-//password: ['', {
-//      validators: [Validators.required,
-//      Validators.minLength(8),
-//      createPasswordStrengthValidator()],
-//      updateOn: 'blur'
-//    }],
-//    });

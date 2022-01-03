@@ -7,14 +7,8 @@ import { LoginComponent } from './login.component';
 
 
 const loginRoutes: Routes = [
-  {
-    path: '', component: LoginComponent,
-    children: [
-      {
-        path: 'register', component: RegistrationComponent
-      }
-    ]
-  }
+  { path: '', component: LoginComponent },
+  { path: 'register', component: RegistrationComponent }
 ];
 
 @NgModule({
@@ -24,7 +18,7 @@ const loginRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     SharedServiceModule,
-    
+
   ],
   exports: [RouterModule]
 })

@@ -15,7 +15,7 @@
     <div class="col-md-6">
       <label for="inputPassword"
              class="form-label">Password</label>
-      <input type="email"
+      <input type="password"
              class="form-control"
              id="inputPassword"
              placeholder="Enter Password"
@@ -32,9 +32,11 @@
           Password must have upper case, lower case, numeric value.
         </div>
       </div>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-primary" [disabled]="!loginForm.valid" type="submit">Login</button>
 
     </div>
-
 
   </form>
 </div>
@@ -50,9 +52,3 @@
 </pre>
 
 
-<!--*ngIf="passwordControl.errors | onlyOneError:['minlength', 'invlidPassword'] as error"-->
-
-
-<!--[ngClass]="{'is-invalid': emailControl.errors &&
-             (emailControl.touched || emailControl.dirty),
-             'is-valid':emailControl.valid}"-->

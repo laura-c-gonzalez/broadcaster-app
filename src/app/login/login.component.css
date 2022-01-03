@@ -3,3 +3,8 @@
   background-image: none;
 }
 
+.form-control.ng-invalid:focus {
+  border-color: #dc3545;
+  background-image: none;
+  box-shadow:none;
+}
