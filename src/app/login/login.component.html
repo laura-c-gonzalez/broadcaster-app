@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="loginForm" class="was-validated" novalidate>
+  <form [formGroup]="loginForm" class="was-validated" novalidate (ngSubmit)="onSubmit()">
     <h4 class="col-md-6">Login</h4>
     <div class="col-md-6">
       <label for="inputEmail" class="form-label">Email</label>
