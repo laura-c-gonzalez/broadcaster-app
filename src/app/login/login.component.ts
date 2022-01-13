@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     const loginCredentials: Login = Object.assign({},this.loginForm.value);
     this.LoginService.loginPost(loginCredentials);
-    /*this.router.navigate(['/home']);*/
+    this.router.navigate(['/broadcaster']);
 
   }
 

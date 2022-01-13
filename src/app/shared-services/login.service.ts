@@ -12,7 +12,6 @@ export class LoginService {
   loginUrl = 'https://localhost:44374/api/Account/login';
 
   loginPost(loginUser: Login) {
-    debugger;
     this.http.post<{ loginForm: string }>(this.loginUrl, loginUser)
       .subscribe(response => { console.log(response);})
   }
