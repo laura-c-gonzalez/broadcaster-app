@@ -1,1 +1,9 @@
-
+.item-list{
+    background-color:lightgrey;
+    padding: 1em;
+}
+@media only screen and (max-width: 993px) and (min-width: 769px) {
+  .item-list {
+    padding: .25em;
+  }
+}

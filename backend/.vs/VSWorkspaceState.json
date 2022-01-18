@@ -5,6 +5,6 @@
     "\\broadcaster-api\\broadcaster-api",
     "\\broadcaster-api\\broadcaster-api\\Controllers"
   ],
-  "SelectedNode": "\\broadcaster-api\\broadcaster-api\\Controllers\\AccountController.cs",
+  "SelectedNode": "\\broadcaster-api\\broadcaster-api\\Startup.cs",
   "PreviewInSolutionExplorer": false
 }
