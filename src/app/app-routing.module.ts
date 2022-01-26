@@ -6,7 +6,7 @@ import { MyStatsComponent } from './my-stats/my-stats.component';
 import { SharedServiceModule } from './shared-services/shared-service.module';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/broadcaster', pathMatch: 'full'},
+  { path: '', redirectTo: '/broadcaster/login', pathMatch: 'full'},
   { path: 'broadcaster', component: HomeComponent },
   {
     path: 'broadcaster/login',

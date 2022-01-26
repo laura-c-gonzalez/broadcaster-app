@@ -2,8 +2,28 @@
     background-color:lightgrey;
     padding: 1em;
 }
+
+.picture-height {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+}
+.container-height {
+    height:400px;
+}
 @media only screen and (max-width: 993px) and (min-width: 769px) {
   .item-list {
     padding: .25em;
+  }
+
+  .container-height {
+    height: 400px;
+  }
+}
+@media only screen and (max-width: 768px) {
+
+  .container-height {
+    height: 300px;
   }
 }
