@@ -12,6 +12,32 @@
 .container-height {
     height:400px;
 }
+
+.slider-wrap{
+    position: relative;
+    overflow:hidden;
+    height: 100px;
+}
+.slider-main{
+    position: absolute;
+}
+.item{
+    display: inline-block;
+    position:relative;
+}
+.prev{
+    position:absolute;
+    left: 80px;
+    top: 85%;
+    transform: translate(-50%, -50%);
+}
+.next {
+  position: absolute;
+  right: 130px;
+  top: 85%;
+  transform: translate(-50%, -50%);
+}
+
 @media only screen and (max-width: 993px) and (min-width: 769px) {
   .item-list {
     padding: .25em;
