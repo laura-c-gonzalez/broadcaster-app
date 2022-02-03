@@ -25,16 +25,16 @@
     display: inline-block;
     position:relative;
 }
-.prev{
-    position:absolute;
-    left: 80px;
-    top: 85%;
-    transform: translate(-50%, -50%);
+.prev {
+  position: absolute;
+  left: 80px;
+  top: 70%;
+  transform: translate(50%, 50%);
 }
 .next {
   position: absolute;
-  right: 130px;
-  top: 85%;
+  right: 80px;
+  top: 70%;
   transform: translate(-50%, -50%);
 }
 
