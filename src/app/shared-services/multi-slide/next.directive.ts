@@ -1,6 +1,5 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
-
 @Directive({
   selector: '[appNext]'
 })
@@ -11,10 +10,9 @@ export class NextDirective {
 
   @HostListener('click')
   nextFunc() {
-    debugger;
     let elm = this.el.nativeElement.parentElement.parentElement.children[0];
     //looking for slider-wrap > slider-main and want to slide on items only thus children and first position
-    console.log(elm);
+
     let item = elm.getElementsByClassName("item");
 
     elm.append(item[0]);

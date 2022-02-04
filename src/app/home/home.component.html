@@ -72,8 +72,8 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid p-2" #gridView>
-    <div class="row" slider-wrap>
+  <div class="container-fluid p-2">
+    <div class="row slider-wrap show.bs.collapse" #gridView>
       <div class="slider-main">
         <div class="m-4 p-4 border item">col1</div>
         <div class="m-4 p-4 border item">col2</div>
@@ -92,8 +92,10 @@
         <div class="m-4 p-4 border item">col15</div>
       </div>
       <div class="button-area">
-        <button type="button" class="prev" appPrev><i class="fas fa-angle-left"></i></button>
-        <button type="button" class="next" appNext><i class="fas fa-angle-right"></i></button>
+        <i class="fas fa-angle-left prev" appPrev></i>
+        <i class="fas fa-angle-right next" appNext></i>
+        <!--<button type="button" class="prev" appPrev><i class="fas fa-angle-left"></i></button>
+  <button type="button" class="next" appNext><i class="fas fa-angle-right"></i></button>-->
       </div>
 
     </div>

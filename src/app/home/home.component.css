@@ -27,14 +27,14 @@
 }
 .prev {
   position: absolute;
-  left: 80px;
-  top: 70%;
+  left: 5px;
+  top: 30%;
   transform: translate(50%, 50%);
 }
 .next {
   position: absolute;
-  right: 80px;
-  top: 70%;
+  right: 70px;
+  top: 45%;
   transform: translate(-50%, -50%);
 }
 
