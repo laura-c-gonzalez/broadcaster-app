@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { OnlyOneErrorPipe } from './pipes/only-one-error.pipe';
+import { AuthLoginService } from './shared-services/auth-login/auth-login.service';
 
 registerLocaleData(en);
 
@@ -56,7 +57,7 @@ registerLocaleData(en);
     AppRoutingModule,
     CommonModule
   ],
-  providers: [],
+  providers: [AuthLoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

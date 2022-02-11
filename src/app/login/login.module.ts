@@ -4,7 +4,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { Routes, RouterModule } from '@angular/router';
 import { SharedServiceModule } from '../shared-services/shared-service.module';
 import { LoginComponent } from './login.component';
-
+import { LogoutComponent } from './logout/logout.component';
 
 const loginRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -12,7 +12,9 @@ const loginRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    LogoutComponent
+  ],
   imports: [
     RouterModule.forChild(loginRoutes),
     FormsModule,
@@ -20,6 +22,7 @@ const loginRoutes: Routes = [
     SharedServiceModule,
 
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: []
 })
 export class loginModule { }

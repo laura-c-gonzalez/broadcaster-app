@@ -1,13 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MyPlaylistComponent } from './my-playlist/my-playlist.component';
 import { MyStatsComponent } from './my-stats/my-stats.component';
+import { AuthLoginService } from './shared-services/auth-login/auth-login.service';
+import { AuthServiceGuard } from './shared-services/auth-service.guard';
 import { SharedServiceModule } from './shared-services/shared-service.module';
 
 const routes: Routes = [
   { path: '', redirectTo: '/broadcaster/login', pathMatch: 'full'},
-  { path: 'broadcaster', component: HomeComponent },
+  {
+    path: 'broadcaster',
+    component: HomeComponent,
+    canActivate:[AuthServiceGuard]
+  },
   {
     path: 'broadcaster/login',
     loadChildren: () => import('./login/login.module').then(m => m.loginModule)
@@ -29,8 +36,10 @@ const routes: Routes = [
   declarations:[],
   imports: [
     RouterModule.forRoot(routes),
-    SharedServiceModule
+    SharedServiceModule,
+    CommonModule
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthLoginService]
 })
 export class AppRoutingModule { }

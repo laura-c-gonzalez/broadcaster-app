@@ -4,6 +4,7 @@ import { LoginService } from '../shared-services/login.service';
 import { Login } from './Dto/login';
 import { createPasswordStrengthValidator } from './validators/password-strength.validator';
 import { Router } from '@angular/router';
+import { AuthLoginService } from '../shared-services/auth-login/auth-login.service';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  email!: string;
+  password!: string;
+
   loginForm!: FormGroup;
 
   constructor(private fb: FormBuilder,
     private LoginService: LoginService,
-    private router: Router) { }
+    private router: Router,
+    public authService: AuthLoginService) { }
 
 
   ngOnInit(): void {
@@ -45,10 +51,29 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    const loginCredentials: Login = Object.assign({},this.loginForm.value);
+    debugger;
+   
+
+    //this.email = this.loginForm.value.email;
+    //this.authService.login(this.email, this.password)
+    //  .subscribe(data => {
+    //    console.log("Is login success: " + data);
+    //    if (data) this.router.navigate(['/broadcaster']);
+    //  })
+
+    const val = this.loginForm.value;
+
+    this.authService.login(val.email, val.password)
+      .subscribe(
+        () => { },
+        err => {
+          alert("Login failed!");
+        }
+    );
+
+     const loginCredentials: Login = Object.assign({}, this.loginForm.value);
     this.LoginService.loginPost(loginCredentials);
     this.router.navigate(['/broadcaster']);
-
   }
 
 }
