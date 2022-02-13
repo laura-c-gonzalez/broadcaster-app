@@ -14,7 +14,6 @@ import { UploadFormComponent } from './upload-songs/upload-form/upload-form.comp
 import { EditSongFormComponent } from './upload-songs/edit-song-form/edit-song-form.component';
 import { GenreSearchComponent } from './search-music/genre-search/genre-search.component';
 import { ArtistSearchComponent } from './search-music/artist-search/artist-search.component';
-import { AuthLoginComponent } from './shared-services/auth-login/auth-login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
@@ -22,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { OnlyOneErrorPipe } from './pipes/only-one-error.pipe';
-import { AuthLoginService } from './shared-services/auth-login/auth-login.service';
+import { AuthStore } from './shared-services/auth-store/auth-store';
 
 registerLocaleData(en);
 
@@ -40,7 +39,6 @@ registerLocaleData(en);
     EditSongFormComponent,
     GenreSearchComponent,
     ArtistSearchComponent,
-    AuthLoginComponent,
     OnlyOneErrorPipe
   ],
   imports: [
@@ -57,7 +55,7 @@ registerLocaleData(en);
     AppRoutingModule,
     CommonModule
   ],
-  providers: [AuthLoginService],
+  providers: [AuthStore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

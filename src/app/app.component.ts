@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AccountService } from './shared-services/account.service';
-import { AuthLoginService, UNKNOWN_USER } from './shared-services/auth-login/auth-login.service';
-import { map } from 'rxjs/operators';
-import { Login } from './login/Dto/login';
+import { AuthStore } from './shared-services/auth-store/auth-store';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +9,7 @@ import { Login } from './login/Dto/login';
 })
 export class AppComponent {
   title = 'broadcaster-app';
-  constructor() { }
+  constructor(public authStore:AuthStore) { }
 
   isLoggedIn$!: Observable<boolean>;
 
@@ -20,6 +17,8 @@ export class AppComponent {
     
   }
 
-
+  logout() {
+    this.authStore.logout();
+  }
   
  }

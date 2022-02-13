@@ -4,9 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MyPlaylistComponent } from './my-playlist/my-playlist.component';
 import { MyStatsComponent } from './my-stats/my-stats.component';
-import { AuthLoginService } from './shared-services/auth-login/auth-login.service';
 import { AuthServiceGuard } from './shared-services/auth-service.guard';
 import { SharedServiceModule } from './shared-services/shared-service.module';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/broadcaster/login', pathMatch: 'full'},
@@ -40,6 +40,6 @@ const routes: Routes = [
     CommonModule
   ],
   exports: [RouterModule],
-  providers: [AuthLoginService]
+  providers: [AuthServiceGuard]
 })
 export class AppRoutingModule { }

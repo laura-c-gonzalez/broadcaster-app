@@ -4,7 +4,8 @@ import { LoginService } from '../shared-services/login.service';
 import { Login } from './Dto/login';
 import { createPasswordStrengthValidator } from './validators/password-strength.validator';
 import { Router } from '@angular/router';
-import { AuthLoginService } from '../shared-services/auth-login/auth-login.service';
+import { AuthStore } from '../shared-services/auth-store/auth-store';
+
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private LoginService: LoginService,
     private router: Router,
-    public authService: AuthLoginService) { }
+    public authStore: AuthStore) { }
 
 
   ngOnInit(): void {
@@ -63,17 +64,19 @@ export class LoginComponent implements OnInit {
 
     const val = this.loginForm.value;
 
-    this.authService.login(val.email, val.password)
+    this.authStore.login(val.email, val.password)
       .subscribe(
-        () => { },
+        () => {
+          this.router.navigate(['/broadcaster'])
+        },
         err => {
           alert("Login failed!");
         }
     );
 
-     const loginCredentials: Login = Object.assign({}, this.loginForm.value);
-    this.LoginService.loginPost(loginCredentials);
-    this.router.navigate(['/broadcaster']);
+    // const loginCredentials: Login = Object.assign({}, this.loginForm.value);
+    //this.LoginService.loginPost(loginCredentials);
+    //this.router.navigate(['/broadcaster']);
   }
 
 }
