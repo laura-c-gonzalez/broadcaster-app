@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthStore } from './shared-services/auth-store/auth-store';
 
@@ -9,16 +10,17 @@ import { AuthStore } from './shared-services/auth-store/auth-store';
 })
 export class AppComponent {
   title = 'broadcaster-app';
-  constructor(public authStore:AuthStore) { }
+  constructor(public authStore: AuthStore,
+    public router: Router) { }
 
   isLoggedIn$!: Observable<boolean>;
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
   logout() {
+    debugger;
     this.authStore.logout();
+    this.router.navigate(['/broadcaster/login']);
   }
-  
- }
+
+}

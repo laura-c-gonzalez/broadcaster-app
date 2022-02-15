@@ -15,11 +15,10 @@ export class AuthServiceGuard implements CanActivate {
 
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> {
-    debugger;
+    
     return this.authStore.isUserLoggedIn$
       .pipe(
         map(loggedIn =>
-          
           loggedIn ? true : this.router.parseUrl('/broadcaster/login')))
   }
   

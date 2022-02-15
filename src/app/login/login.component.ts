@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       email: ['testuser@email.com', [Validators.required]],
       password: ['test', [Validators.required]]
 
-      //validators required when user submitting login info
+      //validators required when user submitting login info!!
       //email: ['', {
       //  validators: [Validators.required, Validators.email],
       //  updateOn: 'blur'
@@ -52,15 +52,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger;
-   
-
-    //this.email = this.loginForm.value.email;
-    //this.authService.login(this.email, this.password)
-    //  .subscribe(data => {
-    //    console.log("Is login success: " + data);
-    //    if (data) this.router.navigate(['/broadcaster']);
-    //  })
 
     const val = this.loginForm.value;
 
@@ -70,13 +61,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/broadcaster'])
         },
         err => {
-          alert("Login failed!");
+           alert("Login failed!");
         }
     );
-
-    // const loginCredentials: Login = Object.assign({}, this.loginForm.value);
-    //this.LoginService.loginPost(loginCredentials);
-    //this.router.navigate(['/broadcaster']);
   }
 
 }

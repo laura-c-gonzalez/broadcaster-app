@@ -17,6 +17,7 @@ const routes: Routes = [
   },
   {
     path: 'broadcaster/login',
+    canActivate: [],
     loadChildren: () => import('./login/login.module').then(m => m.loginModule)
   },
   {
