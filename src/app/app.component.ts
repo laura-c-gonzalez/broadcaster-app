@@ -13,12 +13,9 @@ export class AppComponent {
   constructor(public authStore: AuthStore,
     public router: Router) { }
 
-  isLoggedIn$!: Observable<boolean>;
-
   ngOnInit() { }
 
   logout() {
-    debugger;
     this.authStore.logout();
     this.router.navigate(['/broadcaster/login']);
   }

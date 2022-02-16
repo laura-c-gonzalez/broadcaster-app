@@ -17,9 +17,8 @@ export class AuthStore {
       )
   }
 
-  logout() {
-    debugger;
-    this.isUserLoggedIn$ = of(true);
+  logout(): void {
+    this.isUserLoggedIn$ = of(false);
     localStorage.removeItem('isUserLoggedIn');
   }
 

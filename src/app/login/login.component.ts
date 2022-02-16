@@ -52,15 +52,17 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-
+    debugger;
     const val = this.loginForm.value;
 
     this.authStore.login(val.email, val.password)
       .subscribe(
         () => {
+          debugger;
           this.router.navigate(['/broadcaster'])
         },
         err => {
+          debugger;
            alert("Login failed!");
         }
     );
