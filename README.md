@@ -1,4 +1,4 @@
-Workout manager front end:
+Broadcaster front end:
 # Introduction 
 Angular 13 App with REST API and ASP.NET
 
@@ -18,11 +18,13 @@ Install with npm:
 npm install bootstrap
 ```
 CSS
+<br>
 Copy-paste the stylesheet <link> into your <head> before all other stylesheets to load our CSS.
 ```
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap>
 ```
 Bundle
+<br>
 Include every Bootstrap JavaScript plugin and dependency with one of our two bundles.
 Place the following <script> near the end of your pages, right before the closing </body> tag, to enable them.
 ```
@@ -33,6 +35,7 @@ Install RxJS via npm
 npm install rxjs
 ```
 Font Awesome
+<br>
 Copy-paste the stylesheet <link> into your <head>
 ```
 <link href="/assets/fontawesome-free-6.0.0-beta3-web/css/all.css" rel="stylesheet" />
