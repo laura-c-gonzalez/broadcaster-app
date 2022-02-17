@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
@@ -11,8 +10,10 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item fs-4 text">
           <a routerLink="/broadcaster/login/register"
+             *ngIf="!(authStore.isUserLoggedIn$ | async)"
              class="nav-link">
             Register
+            <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item active fs-4 text">
@@ -20,7 +21,28 @@
              *ngIf="!(authStore.isUserLoggedIn$ | async)"
              class="nav-link">
             Login
+          </a>
+        </li>
+        <li class="nav-item active fs-4 text">
+          <a *ngIf="authStore.isUserLoggedIn$ | async"
+             routerLink="/broadcaster/upload"
+             class="nav-link">
+            My Uploads
             <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item fs-4 text">
+          <a routerLink="/broadcaster/my-playlist"
+             *ngIf="authStore.isUserLoggedIn$ | async"
+             class="nav-link">
+            Playlists
+          </a>
+        </li>
+        <li class="nav-item fs-4 text">
+          <a routerLink="/broadcaster/stats"
+             *ngIf="authStore.isUserLoggedIn$ | async"
+             class="nav-link">
+            My Stats
           </a>
         </li>
         <li class="nav-item active fs-4 text">
@@ -32,44 +54,12 @@
             <span class="sr-only">(current)</span>
           </a>
         </li>
-
       </ul>
-      <form class="d-flex">
+      <form *ngIf="authStore.isUserLoggedIn$ | async"
+            class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-    </div>
-  </div>
-
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
-            aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Broadcaster</a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item active fs-4 text">
-          <a routerLink="/broadcaster/upload"
-             class="nav-link">
-            My Uploads
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item fs-4 text">
-          <a routerLink="/broadcaster/my-playlist"
-             class="nav-link">
-            Playlists
-          </a>
-        </li>
-        <li class="nav-item fs-4 text">
-          <a routerLink="/broadcaster/stats"
-             class="nav-link">
-            My Stats
-          </a>
-        </li>
-      </ul>
     </div>
   </div>
 
@@ -84,15 +74,19 @@
   </a>
   <ul class="nav col-md-4 justify-content-end">
     <li class="nav-item">
-      <a routerLink="/broadcaster/login" *ngIf="!(authStore.isUserLoggedIn$ | async)"
+      <a routerLink="/broadcaster/login/register"
+         *ngIf="!(authStore.isUserLoggedIn$ | async)"
+         class="nav-link px-2 text-muted">Register</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/broadcaster/login"
+         *ngIf="!(authStore.isUserLoggedIn$ | async)"
          class="nav-link px-2 text-muted">Login</a>
     </li>
     <li class="nav-item">
-    <a (click)="logout()" *ngIf="authStore.isUserLoggedIn$ | async">Logout</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="/broadcaster/login/register"
-         class="nav-link px-2 text-muted">Register</a>
+      <a (click)="logout()"
+         *ngIf="authStore.isUserLoggedIn$ | async"
+         class="nav-link px-2 text-muted">Logout</a>
     </li>
   </ul>
 </footer>

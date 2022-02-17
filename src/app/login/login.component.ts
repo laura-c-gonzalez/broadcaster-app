@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from '../shared-services/login.service';
 import { Login } from './Dto/login';
 import { createPasswordStrengthValidator } from './validators/password-strength.validator';
 import { Router } from '@angular/router';
@@ -20,7 +19,6 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
 
   constructor(private fb: FormBuilder,
-    private LoginService: LoginService,
     private router: Router,
     public authStore: AuthStore) { }
 
@@ -52,17 +50,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    debugger;
     const val = this.loginForm.value;
 
     this.authStore.login(val.email, val.password)
       .subscribe(
         () => {
-          debugger;
           this.router.navigate(['/broadcaster'])
         },
         err => {
-          debugger;
            alert("Login failed!");
         }
     );

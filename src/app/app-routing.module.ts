@@ -13,7 +13,8 @@ const routes: Routes = [
   {
     path: 'broadcaster',
     component: HomeComponent,
-    canActivate:[AuthServiceGuard]
+    canActivate: [AuthServiceGuard]
+    
   },
   {
     path: 'broadcaster/login',
@@ -41,6 +42,8 @@ const routes: Routes = [
     CommonModule
   ],
   exports: [RouterModule],
-  providers: [AuthServiceGuard]
+  providers: [
+    AuthServiceGuard
+  ]
 })
 export class AppRoutingModule { }
