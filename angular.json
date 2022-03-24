@@ -66,40 +66,44 @@
         },
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "broadcaster-app:build:production"
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
+            "configurations": {
+              "production": {
+                "browserTarget": "broadcaster-app:build:production"
+
+              },
+              "development": {
+                "browserTarget": "broadcaster-app:build:development"
+              }
             },
-            "development": {
-              "browserTarget": "broadcaster-app:build:development"
+            "defaultConfiguration": "development"
+          },
+          "extract-i18n": {
+            "builder": "@angular-devkit/build-angular:extract-i18n",
+            "options": {
+              "browserTarget": "broadcaster-app:build"
             }
           },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "broadcaster-app:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+          "test": {
+            "builder": "@angular-devkit/build-angular:karma",
+            "options": {
+              "main": "src/test.ts",
+              "polyfills": "src/polyfills.ts",
+              "tsConfig": "tsconfig.spec.json",
+              "karmaConfig": "karma.conf.js",
+              "assets": [
+                "src/favicon.ico",
+                "src/assets"
+              ],
+              "styles": [
+                "src/styles.css"
+              ],
+              "scripts": []
+            }
           }
         }
-      }
     }
   },
   "defaultProject": "broadcaster-app"

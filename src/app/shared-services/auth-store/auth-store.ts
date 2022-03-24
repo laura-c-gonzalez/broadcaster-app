@@ -8,7 +8,6 @@ export class AuthStore {
   isUserLoggedIn$: Observable<boolean> = of(false);
 
   login(email: string, password: string): Observable<any> {
-    debugger;
     return this.isUserLoggedIn$ = of(email == 'testuser@email.com' && password == 'test')
       .pipe(
         tap(val => {

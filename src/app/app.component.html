@@ -60,9 +60,21 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #searchInput>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <!--<table class="table" *ngIf="(artist$ | async) as artists">
+        <thead>
+          <tr>
+            <th scope="col">Artist Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr scope="row" *ngFor="let artist of artists">
+            <td>{{artist.artistName}}</td>
+          </tr>
+        </tbody>
+      </table>-->
     </div>
   </div>
-
+  
 </nav>
 
 <router-outlet></router-outlet>
