@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map, observable, Observable } from 'rxjs';
+import { Observable, map, switchMap, fromEvent, debounceTime, of, distinctUntilChanged } from 'rxjs';
 import { Iartists } from './home/Dto search/artists';
 import { Isongs } from './home/Dto search/songs';
 import { AuthStore } from './shared-services/auth-store/auth-store';
@@ -16,35 +16,44 @@ import { BackOfficeService } from './shared-services/backoffice.service'
 export class AppComponent {
   title = 'broadcaster-app';
 
-  artist$!:any;
+  artist$!: Observable<Iartists[]>;
+
   songs$!: Observable<Isongs>;
 
+  isVisible: boolean = false;
+
   @ViewChild('searchInput')
-    input!: ElementRef;
+  searchInput!: ElementRef;
 
   constructor(public authStore: AuthStore,
     public router: Router,
     private route: ActivatedRoute,
-    private backofficeService: BackOfficeService,
-    private http: HttpClient
+    private backofficeService: BackOfficeService
   ) { }
 
   ngOnInit() {
-
     debugger;
-    this.artist$ = this.http.get('/api/users')
+    this.backofficeService.getArtists()
       .subscribe(
-      val => console.log(val))
-    //this.artist$ =  this.backofficeService.getArtists()
-    //  .pipe(
-    //    map(res => res["users"])
-    //  )
-      
+        val => this.artist$ = of(val));
   }
 
   logout() {
     this.authStore.logout();
     this.router.navigate(['/broadcaster/login']);
+
   }
 
+  ngAfterViewInit() {
+    debugger;
+    fromEvent<any>(this.searchInput.nativeElement, 'keyup')
+      .pipe(
+        map(event => event.target.value),
+        debounceTime(400),
+        distinctUntilChanged(),
+      /*  switchMap()*/
+    )
+      .subscribe(console.log)
+  }
 }
+

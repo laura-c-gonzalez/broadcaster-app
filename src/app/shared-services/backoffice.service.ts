@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 import { Iartists } from '../home/Dto search/artists';
 
 
@@ -8,14 +8,19 @@ import { Iartists } from '../home/Dto search/artists';
   providedIn: 'root'
 })
 export class BackOfficeService {
+  log: any;
 
   constructor(private http: HttpClient) { }
 
-  urlArtists = 'http://localhost:3000/users';
-  urlSongs = 'http://localhost:3000/musicUploads';
+  urlArtists = '/api/users';
+  urlSongs = '/api/musicUploads';
+
+
 
   getArtists(): Observable<Iartists[]> {
-    return this.http.get<Iartists[]>(this.urlArtists) as Observable<Iartists[]>;
+    debugger;
+    return this.http.get<Iartists[]>(this.urlArtists);
+     
   }
 
   getArtistById(id: number): Observable<Iartists> {
