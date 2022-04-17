@@ -59,11 +59,23 @@
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #searchInput>
         <button class="btn btn-outline-success" type="submit">Search</button>
-        <div *ngIf="artist$ | async as artists">
-          <div *ngFor="let artist of artists">
-            <h3>{{artist}}</h3>
+
+
+
+      <ul>
+        <li *ngFor="let art of artists">
+          <h3>{{art.artistName}}</h3>
+        </li>
+      </ul>
+        
+      
+        
+
+        <!--<div *ngIf="artists$ | async as artists">
+          <div *ngFor="let art of artists">
+            <h3>{{art}}</h3>
           </div>
-        </div>
+        </div>-->
       </form>
 
     </div>

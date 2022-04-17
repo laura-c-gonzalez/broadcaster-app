@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, map, switchMap, fromEvent, debounceTime, of, distinctUntilChanged } from 'rxjs';
-import { Iartists } from './home/Dto search/artists';
+import { Observable, map, switchMap, fromEvent, debounceTime, of, distinctUntilChanged, tap } from 'rxjs';
+import { Artists, Iartists } from './home/Dto search/artists';
 import { Isongs } from './home/Dto search/songs';
 import { AuthStore } from './shared-services/auth-store/auth-store';
 import { BackOfficeService } from './shared-services/backoffice.service'
@@ -16,7 +16,8 @@ import { BackOfficeService } from './shared-services/backoffice.service'
 export class AppComponent {
   title = 'broadcaster-app';
 
-  artist$!: Observable<Iartists[]>;
+  artists: Iartists[] = [];
+
 
   songs$!: Observable<Isongs>;
 
@@ -33,9 +34,25 @@ export class AppComponent {
 
   ngOnInit() {
     debugger;
+
     this.backofficeService.getArtists()
       .subscribe(
-        val => this.artist$ = of(val));
+        (res) => {
+          this.artists = res;
+          console.log(this.artists);
+        },
+        err => console.log(err),
+        () => console.log('complete')
+      )
+
+
+
+
+    //  .pipe(
+    //    map(res => Object.values(res["payload"]))
+    //  )
+    //console.log(this.artist$);
+
   }
 
   logout() {
@@ -51,8 +68,8 @@ export class AppComponent {
         map(event => event.target.value),
         debounceTime(400),
         distinctUntilChanged(),
-      /*  switchMap()*/
-    )
+        /*  switchMap()*/
+      )
       .subscribe(console.log)
   }
 }

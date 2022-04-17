@@ -4,11 +4,16 @@ export interface Iartists {
   lastName: string;
   artistName: string;
   address: string;
+  email: string;
+  password: string;
 }
-export class Home implements Iartists {
+export class Artists implements Iartists {
   id!: number;
   firstName!: string;
   lastName!: string;
   artistName!: string;
   address!: string;
+  email!: string;
+  password!: string;
 }
+

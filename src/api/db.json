@@ -2,35 +2,22 @@
   "users": [
     {
       "id": 1,
-      "first name": "joe",
-      "last name": "smith",
-      "artist name": "joe28",
+      "firstName": "joe",
+      "lastName": "smith",
+      "artistName": "joe28",
       "address": "123 Road Smith",
       "email": "",
       "password": ""
-    },
-    {
-      "id": 1,
-      "first name": "Lana",
-      "last name": "Ray",
-      "artist name": "lana01",
-      "address": "123 Road Smith",
-      "email": "",
-      "password": ""
-    }
-  ],
-  "musicUploads": [
-    {
-      "id": 1,
-      "songName": "track1-1",
-      "length": 3.5,
-      "track image": ""
     },
     {
       "id": 2,
-      "songName": "track2-1",
-      "length": 4,
-      "track image": ""
+      "firstName": "Lana",
+      "lastName": "Ray",
+      "artistName": "lana01",
+      "address": "123 Road Smith",
+      "email": "",
+      "password": ""
     }
   ]
+
 }
