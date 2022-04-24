@@ -61,15 +61,11 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
 
 
-
-      <ul>
-        <li *ngFor="let art of artists">
-          <h3>{{art.artistName}}</h3>
-        </li>
-      </ul>
-        
-      
-        
+        <ul *ngFor="let art of artists; let i=index">
+          <Li *ngFor="let art of artists[i].users">
+            {{art.artistName}}
+          </Li>
+        </ul>
 
         <!--<div *ngIf="artists$ | async as artists">
           <div *ngFor="let art of artists">

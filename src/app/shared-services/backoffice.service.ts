@@ -13,11 +13,12 @@ export class BackOfficeService {
 
   constructor(private http: HttpClient) { }
 
-  urlArtists = '/api/users';
+  urlArtists = '/api/payload';
 
 
   getArtists(): Observable<Iartists[]> {
     return this.http.get<Iartists[]>(this.urlArtists);
+
   }
 
 

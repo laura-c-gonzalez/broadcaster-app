@@ -16,8 +16,8 @@ import { BackOfficeService } from './shared-services/backoffice.service'
 export class AppComponent {
   title = 'broadcaster-app';
 
-  artists: Iartists[] = [];
-
+  artists$!: Observable<Iartists[]>;
+  artists: any[] = [];
 
   songs$!: Observable<Isongs>;
 
@@ -44,14 +44,6 @@ export class AppComponent {
         err => console.log(err),
         () => console.log('complete')
       )
-
-
-
-
-    //  .pipe(
-    //    map(res => Object.values(res["payload"]))
-    //  )
-    //console.log(this.artist$);
 
   }
 
