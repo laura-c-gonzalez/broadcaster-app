@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, map, switchMap, fromEvent, debounceTime, of, distinctUntilChanged, tap } from 'rxjs';
+import { Observable, map, switchMap, fromEvent, debounceTime, of, distinctUntilChanged, tap, noop, concatMap, mergeMap } from 'rxjs';
 import { Artists, Iartists } from './home/Dto search/artists';
 import { Isongs } from './home/Dto search/songs';
 import { AuthStore } from './shared-services/auth-store/auth-store';
 import { BackOfficeService } from './shared-services/backoffice.service'
+import { createHttpObservable } from './shared-services/utils';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class AppComponent {
   title = 'broadcaster-app';
 
   artists$!: Observable<Iartists[]>;
-  artists: any[] = [];
+/*  artists: any[] = [];*/
 
   songs$!: Observable<Isongs>;
 
@@ -33,18 +34,15 @@ export class AppComponent {
   ) { }
 
   ngOnInit() {
-    debugger;
+    const http$ = createHttpObservable('/api/payload');
+    this.artists$ = this.loadArtists();
 
-    this.backofficeService.getArtists()
-      .subscribe(
-        (res) => {
-          this.artists = res;
-          console.log(this.artists);
-        },
-        err => console.log(err),
-        () => console.log('complete')
-      )
 
+    http$.subscribe(
+      search => console.log(search),
+      noop,
+      () => console.log('completed')
+    );
   }
 
   logout() {
@@ -54,15 +52,32 @@ export class AppComponent {
   }
 
   ngAfterViewInit() {
-    debugger;
     fromEvent<any>(this.searchInput.nativeElement, 'keyup')
       .pipe(
         map(event => event.target.value),
         debounceTime(400),
         distinctUntilChanged(),
-        /*  switchMap()*/
+        switchMap(search => this.loadArtists(search))
       )
-      .subscribe(console.log)
+      .subscribe(console.log);
+  }
+
+  loadArtists(search = '') {
+
+    return createHttpObservable(`/api/payload$filter$(search)`)
+      .pipe(
+        map((res: Iartists) => res[0].users[0].artistName)
+      )
   }
 }
 
+
+//this.backofficeService.getArtists()
+//  .subscribe(
+//    (res) => {
+//      this.artists = res;
+//      console.log(this.artists);
+//    },
+//    err => console.log(err),
+//    () => console.log('complete')
+//  )
