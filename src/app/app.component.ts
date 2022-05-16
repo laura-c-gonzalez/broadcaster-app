@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, map, switchMap, fromEvent, debounceTime, of, distinctUntilChanged, tap, noop, concatMap, mergeMap } from 'rxjs';
+import { Observable, map, switchMap, fromEvent, debounceTime, of, distinctUntilChanged, tap, noop, concatMap, mergeMap, concat, exhaustMap, filter } from 'rxjs';
 import { Artists, Iartists } from './home/Dto search/artists';
 import { Isongs } from './home/Dto search/songs';
 import { AuthStore } from './shared-services/auth-store/auth-store';
@@ -35,7 +35,7 @@ export class AppComponent {
 
   ngOnInit() {
     const http$ = createHttpObservable('/api/payload');
-    this.artists$ = this.loadArtists();
+    
 
 
     http$.subscribe(
@@ -52,21 +52,25 @@ export class AppComponent {
   }
 
   ngAfterViewInit() {
-    fromEvent<any>(this.searchInput.nativeElement, 'keyup')
+   const searchArtists$ = fromEvent<any>(this.searchInput.nativeElement, 'keyup')
       .pipe(
         map(event => event.target.value),
         debounceTime(400),
         distinctUntilChanged(),
         switchMap(search => this.loadArtists(search))
-      )
-      .subscribe(console.log);
+    );
+
+    const initialArtists$ = this.loadArtists();
+
+    this.artists$ = concat(initialArtists$, searchArtists$);
+     
   }
 
-  loadArtists(search = '') {
+  loadArtists(search = ''): Observable<Iartists[]> {
 
     return createHttpObservable(`/api/payload$filter$(search)`)
       .pipe(
-        map((res: Iartists) => res[0].users[0].artistName)
+        map((res: Iartists) => res[0].users)
       )
   }
 }

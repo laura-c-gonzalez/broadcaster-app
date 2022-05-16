@@ -60,23 +60,11 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #searchInput>
         <button class="btn btn-outline-success" type="submit">Search</button>
 
-
-        <ul *ngIf="artists$ | async as artists">
-          <li>{{artists}}</li>
+        <ul>
+          <li *ngFor="let artists of artists$ | async; index as i">
+          {{artists.artistName}}
+          </li>
         </ul>
-
-        <!--<div *ngFor="let art of artists$ | async">
-        {{art}}
-        </div>-->
-
-        <!--<div>
-          <ul *ngFor="let arts of artists$ | async; let i=index">
-            <Li *ngFor="let ar of arts[0].users[0];">
-              {{ar.artistName}}
-            </Li>
-          </ul>
-        </div>-->
-     
 
       </form>
 
