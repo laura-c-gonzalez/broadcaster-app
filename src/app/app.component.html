@@ -32,10 +32,17 @@
           </a>
         </li>
         <li class="nav-item fs-4 text">
+          <a routerLink="/broadcaster/search"
+             *ngIf="authStore.isUserLoggedIn$ | async"
+             class="nav-link">
+            Search New Music
+          </a>
+        </li>
+        <li class="nav-item fs-4 text">
           <a routerLink="/broadcaster/my-playlist"
              *ngIf="authStore.isUserLoggedIn$ | async"
              class="nav-link">
-            Playlists
+            My Playlists
           </a>
         </li>
         <li class="nav-item fs-4 text">
@@ -57,16 +64,39 @@
       </ul>
 
       <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #searchInput>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-
-        <ul>
-          <li *ngFor="let artists of artists$ | async; index as i">
-          {{artists.artistName}}
-          </li>
-        </ul>
-
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #searchInput *ngIf="authStore.isUserLoggedIn$ | async">
+        <!--<button class="btn btn-outline-success" type="submit">Search</button>-->
       </form>
+
+      <!--<table>
+        <tr>
+          <td>Artist Name</td>
+        </tr>
+
+        <tr *ngFor="let art of getKeys(artists$| async)">
+          <td>{{art[art].artistName}}</td>
+        </tr>
+
+      </table>-->
+
+
+      <!--<table> was using this
+        <tr>
+          <td>Artist Name</td>
+        </tr>
+        <tr *ngFor="let art of (artists$ | async) ">
+          <td>{{art.artistName}}</td>
+        </tr>
+
+      </table>-->
+
+      
+      <!--<ul>
+        <li *ngFor="let artists of artists$ | async; index as i">
+          {{artists.artistName}}
+        </li>
+      </ul>-->
+
 
     </div>
   </div>
@@ -102,3 +132,5 @@
 
 
 <!--*ngIf="authStore.isUserLoggedIn$ | async"-->
+
+<!--<table *ngIf="(artists$ | async) as artists">-->

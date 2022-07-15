@@ -8,7 +8,6 @@ import { UploadSongsComponent } from './upload-songs/upload-songs.component';
 import { SearchMusicComponent } from './search-music/search-music.component';
 import { MyPlaylistComponent } from './my-playlist/my-playlist.component';
 import { MyStatsComponent } from './my-stats/my-stats.component';
-import { SharedServiceModule } from './shared-services/shared-service.module';
 import { RegistrationComponent } from './login/registration/registration.component';
 import { UploadFormComponent } from './upload-songs/upload-form/upload-form.component';
 import { EditSongFormComponent } from './upload-songs/edit-song-form/edit-song-form.component';
@@ -46,7 +45,6 @@ registerLocaleData(en);
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    SharedServiceModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],

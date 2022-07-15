@@ -5,8 +5,6 @@ import { HomeComponent } from './home/home.component';
 import { MyPlaylistComponent } from './my-playlist/my-playlist.component';
 import { MyStatsComponent } from './my-stats/my-stats.component';
 import { AuthServiceGuard } from './shared-services/auth-service.guard';
-import { SharedServiceModule } from './shared-services/shared-service.module';
-
 
 const routes: Routes = [
   { path: '', redirectTo: '/broadcaster/login', pathMatch: 'full'},
@@ -38,7 +36,6 @@ const routes: Routes = [
   declarations:[],
   imports: [
     RouterModule.forRoot(routes),
-    SharedServiceModule,
     CommonModule
   ],
   exports: [RouterModule],

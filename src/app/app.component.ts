@@ -17,15 +17,17 @@ import { createHttpObservable } from './shared-services/utils';
 export class AppComponent {
   title = 'broadcaster-app';
 
-  artists$!: Observable<Iartists[]>;
-/*  artists: any[] = [];*/
 
-  songs$!: Observable<Isongs>;
+  //artists$!: Observable<Iartists[]>;
 
-  isVisible: boolean = false;
+  //artistId!: string;
 
-  @ViewChild('searchInput')
-  searchInput!: ElementRef;
+  //songs$!: Observable<Isongs>;
+
+  //isVisible: boolean = false;
+
+  //@ViewChild('searchInput')
+  //searchInput!: ElementRef;
 
   constructor(public authStore: AuthStore,
     public router: Router,
@@ -34,45 +36,58 @@ export class AppComponent {
   ) { }
 
   ngOnInit() {
-    const http$ = createHttpObservable('/api/payload');
-    
+    //this.artistId = this.route.snapshot.params["id"];
+    //console.log(this.artistId);
+
+    //const http$ = createHttpObservable(`/api/payload/${this.artistId}`);
 
 
-    http$.subscribe(
-      search => console.log(search),
-      noop,
-      () => console.log('completed')
-    );
+    //http$.subscribe(
+    //  search => console.log(search),
+    //  noop,
+    //  () => console.log('completed')
+    //);
   }
 
   logout() {
     this.authStore.logout();
     this.router.navigate(['/broadcaster/login']);
-
   }
 
-  ngAfterViewInit() {
-   const searchArtists$ = fromEvent<any>(this.searchInput.nativeElement, 'keyup')
-      .pipe(
-        map(event => event.target.value),
-        debounceTime(400),
-        distinctUntilChanged(),
-        switchMap(search => this.loadArtists(search))
-    );
+  //ngAfterViewInit() {
 
-    const initialArtists$ = this.loadArtists();
+  // const searchArtists$ = fromEvent<any>(this.searchInput.nativeElement, 'keyup')
+  //    .pipe(
+  //      map(event => event.target.value),
+  //      debounceTime(400),
+  //      distinctUntilChanged(),
+  //      switchMap(search => this.loadArtists(search))
+  //  );
 
-    this.artists$ = concat(initialArtists$, searchArtists$);
+  //  const initialArtists$ = this.loadArtists();
+
+  //  this.artists$ = concat(initialArtists$, searchArtists$);
      
+  //}
+
+
+  searchArtist() {
+     //filter this array  artists$
   }
 
-  loadArtists(search = ''): Observable<Iartists[]> {
+  //loadArtists(search = ''): Observable<Iartists[]> {
 
-    return createHttpObservable(`/api/payload$filter$(search)`)
-      .pipe(
-        map((res: Iartists) => res[0].users)
-      )
-  }
+  //  let result = createHttpObservable(`/api/payload?artistId=${this.artistId}&filter=${search}`);
+
+
+  //  console.log("my result is " + result[0]);
+   
+  //  return createHttpObservable(`/api/payload?artistId=${this.artistId}&filter=${search}`)
+  //    .pipe(
+  //      map((res: Iartists) =>res[0].users)
+  //    )
+  //}
+
 }
 
 

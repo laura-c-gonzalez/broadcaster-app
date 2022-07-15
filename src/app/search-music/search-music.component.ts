@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-search-music',
   templateUrl: './search-music.component.html',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchMusicComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+
+  constructor( ) { }
+
+  ngOnInit() {}
+
+  
 
 }

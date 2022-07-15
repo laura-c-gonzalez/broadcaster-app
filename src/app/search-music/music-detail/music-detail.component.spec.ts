@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SharedServicesComponent } from './shared-services.component';
+import { MusicDetailComponent } from './music-detail.component';
 
-describe('SharedServicesComponent', () => {
-  let component: SharedServicesComponent;
-  let fixture: ComponentFixture<SharedServicesComponent>;
+describe('MusicDetailComponent', () => {
+  let component: MusicDetailComponent;
+  let fixture: ComponentFixture<MusicDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SharedServicesComponent ]
+      declarations: [ MusicDetailComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SharedServicesComponent);
+    fixture = TestBed.createComponent(MusicDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
