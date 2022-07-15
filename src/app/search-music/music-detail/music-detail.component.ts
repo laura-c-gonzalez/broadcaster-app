@@ -17,7 +17,7 @@ export class MusicDetailComponent implements OnInit {
 
   artistId!: string;
 
-  songs$!: Observable<Isongs>;
+  songs$!: Observable<Isongs[]>;
 
   isVisible: boolean = false;
 

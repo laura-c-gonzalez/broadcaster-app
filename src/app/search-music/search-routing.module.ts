@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { MusicDetailComponent } from './music-detail/music-detail.component';
 import { SearchMusicComponent } from './search-music.component';
@@ -22,10 +23,11 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-
+    MusicDetailComponent
   ],
   imports: [
-  RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    CommonModule
   ],
   exports: [RouterModule],
   providers: [

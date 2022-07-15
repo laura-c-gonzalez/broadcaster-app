@@ -5,7 +5,7 @@ import { ArtistSearchComponent } from './artist-search/artist-search.component';
 import { GenreSearchComponent } from './genre-search/genre-search.component';
 import { SearchMusicComponent } from './search-music.component';
 import { SearchRoutingModule } from './search-routing.module';
-import { MusicDetailComponent } from './music-detail/music-detail.component';
+
 
 const searchRoutes: Routes = [
   { path: '', component: SearchMusicComponent },
@@ -15,7 +15,7 @@ const searchRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    MusicDetailComponent
+  
   ],
   imports: [
     ReactiveFormsModule,
