@@ -7,7 +7,11 @@ import { MyStatsComponent } from './my-stats/my-stats.component';
 import { AuthServiceGuard } from './shared-services/auth-service.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/broadcaster/login', pathMatch: 'full'},
+  {
+    path: '',
+    redirectTo: '/broadcaster/login',
+    pathMatch: 'full'
+  },
   {
     path: 'broadcaster',
     component: HomeComponent,

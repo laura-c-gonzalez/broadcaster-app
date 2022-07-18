@@ -1,33 +1,41 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule, Routes } from '@angular/router';
-import { MusicDetailComponent } from './music-detail/music-detail.component';
+/*import { MusicDetailComponent } from './music-detail/music-detail.component';*/
 import { SearchMusicComponent } from './search-music.component';
+import { MusicDetailComponent } from './music-detail/music-detail.component';
+import { GenreSearchComponent } from './genre-search/genre-search.component';
+import { ArtistSearchComponent } from './artist-search/artist-search.component';
 import { MusicDetailResolver } from './services/music-detail.resolver';
 
-const routes: Routes = [
+const searchRoutes: Routes = [
   {
-    path: "",
-    component: SearchMusicComponent,
-    children: [
-      {
-        path: "music/:musicNo",
-        component: MusicDetailComponent,
-        resolve: {
-          music: MusicDetailResolver
-        }
-      }
-    ]
+    path: '',
+    component: SearchMusicComponent
+  },
+  {
+    path: 'musicUrl',
+    component: MusicDetailComponent,
+    resolve: {
+      musicObj: MusicDetailResolver
+    }
+  },
+  {
+    path: 'search/genre',
+    component: GenreSearchComponent
+  },
+  {
+    path: 'search/artist',
+    component: ArtistSearchComponent
   }
 ];
 
 @NgModule({
   declarations: [
-    MusicDetailComponent
+
   ],
   imports: [
-    RouterModule.forChild(routes),
-    CommonModule
+    RouterModule.forChild(searchRoutes)
   ],
   exports: [RouterModule],
   providers: [
@@ -35,4 +43,4 @@ const routes: Routes = [
   ]
 })
 
-export class SearchRoutingModule{ }
+export class SearchRoutingModule { }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, empty, expand, map, Observable, of, reduce, switchMap, tap } from 'rxjs';
+import { catchError, empty, expand, first, map, Observable, of, reduce, switchMap, tap } from 'rxjs';
 import { Iartists } from '../home/Dto search/artists';
 import { Isongs } from "../home/Dto search/songs";
 import { shareReplay } from 'rxjs';
@@ -35,15 +35,15 @@ export class BackOfficeService {
     })
   }
 
-  loadMusicDetail(musicUrl) {
-    return this.http.get<Isongs>(this.url, {
-      params: {
-        musicUrl
-      }
-    })
+  loadAllCourses(musicUrl):Observable<Isongs[]> {
+    return this.http.get<Isongs[]>(`/api/payload`)
       .pipe(
-        shareReplay()
-      );
+      first(),
+      shareReplay(),
+   
+      )
   }
 
 }
+//return this.http.get<Isongs[]>(`/api/payload/${musicUrl}`)
+/*return this.http.get<Isongs[]>(`/api/payload`, { params: { musicUrl } })*/

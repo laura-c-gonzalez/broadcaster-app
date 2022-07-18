@@ -11,8 +11,6 @@ import { MyStatsComponent } from './my-stats/my-stats.component';
 import { RegistrationComponent } from './login/registration/registration.component';
 import { UploadFormComponent } from './upload-songs/upload-form/upload-form.component';
 import { EditSongFormComponent } from './upload-songs/edit-song-form/edit-song-form.component';
-import { GenreSearchComponent } from './search-music/genre-search/genre-search.component';
-import { ArtistSearchComponent } from './search-music/artist-search/artist-search.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
@@ -36,8 +34,6 @@ registerLocaleData(en);
     RegistrationComponent,
     UploadFormComponent,
     EditSongFormComponent,
-    GenreSearchComponent,
-    ArtistSearchComponent,
     OnlyOneErrorPipe
   ],
   imports: [

@@ -1,19 +1,24 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from "@angular/router";
-import { Observable } from "rxjs";
+import { catchError, Observable, throwError } from "rxjs";
 import { Isongs } from "../../home/Dto search/songs";
 import { BackOfficeService } from "../../shared-services/backoffice.service";
 
 @Injectable()
-export class MusicDetailResolver implements Resolve<Isongs>{
+export class MusicDetailResolver implements Resolve<Isongs[]>{
 
   constructor(private backoffice: BackOfficeService) { }
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Isongs | Observable<Isongs> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Isongs[]> | Isongs[] {
 
-      const musicUrl = route.paramMap.get("music/:musicNo");
 
-      return this.backoffice.loadMusicDetail(musicUrl);
-    }
+    const musicUrl = route.paramMap.get("musicObj");
+    console.log("Called Get MusicObj in resolver... " + musicUrl);
+
+    console.log("result from resolver" + this.backoffice.loadAllCourses((musicUrl)));
+
+    return this.backoffice.loadAllCourses(musicUrl);
+  
+  }
   
 }
