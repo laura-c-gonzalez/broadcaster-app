@@ -9,10 +9,7 @@ import { ArtistSearchComponent } from './artist-search/artist-search.component';
 import { MusicDetailResolver } from './services/music-detail.resolver';
 
 const searchRoutes: Routes = [
-  {
-    path: '',
-    component: SearchMusicComponent
-  },
+
   {
     path: 'musicUrl',
     component: MusicDetailComponent,

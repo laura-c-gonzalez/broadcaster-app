@@ -16,9 +16,9 @@ import { HttpClient } from '@angular/common/http';
 export class MusicDetailComponent implements OnInit {
   artists$!: Observable<Iartists[]>;
 
-  artistId!: string;
+  http$!: Observable<Isongs>;
 
-  songs$!: Observable<Isongs[]>;
+  songs$!: Observable<Isongs>;
 
   isVisible: boolean = false;
 
@@ -33,20 +33,21 @@ export class MusicDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    debugger;
     //this.http.get('/api/payload').subscribe(val => console.log("http get in music component"+ JSON.stringify(val)));
   
-    this.artistId = this.route.snapshot.data["music"];
-    console.log("Result of route snapshot"+ this.artistId)
+    const songData = this.route.snapshot.data["music"];
 
-    const http$ = createHttpObservable(`/api/payload/${this.artistId}`);
+    this.http$ = createHttpObservable(`/api/payload/${songData}`);
+
+    this.http$.subscribe(console.log);
 
 
-    http$.subscribe(
-      /*search => console.log(search),*/
-      noop,
-      () => console.log('completed')
-    );
+    //http$.subscribe(
+    //  search => console.log(search),
+    //  noop,
+    //  () => console.log('completed')
+    //);
   }
 
   logout() {
@@ -54,34 +55,33 @@ export class MusicDetailComponent implements OnInit {
     this.router.navigate(['/broadcaster/login']);
   }
 
-  ngAfterViewInit() {
+  //ngAfterViewInit() {
+  //  debugger;
+  //  const searchArtists$ = fromEvent<any>(this.searchInput.nativeElement, 'keyup')
+  //    .pipe(
+  //      map(event => event.target.value),
+  //      debounceTime(400),
+  //      distinctUntilChanged(),
+  //      switchMap(search => this.loadArtists(search))
+  //    );
 
-    const searchArtists$ = fromEvent<any>(this.searchInput.nativeElement, 'keyup')
-      .pipe(
-        map(event => event.target.value),
-        debounceTime(400),
-        distinctUntilChanged(),
-        switchMap(search => this.loadArtists(search))
-      );
+  //  const initialArtists$ = this.loadArtists();
 
-    const initialArtists$ = this.loadArtists();
+  //  this.songs$ = concat(initialArtists$, searchArtists$);
 
-    this.songs$ = concat(initialArtists$, searchArtists$);
-
-    console.log("songs$" + this.songs$);
-
-  }
+  //}
 
 
-  loadArtists(search = ''): Observable<Isongs[]>{
+  //loadArtists(search = ''): Observable<Isongs>{
+  //  debugger;
 
-    let result = createHttpObservable(`/api/payload?artistId=${this.artistId}&filter=${search}`);
+  //  let result = createHttpObservable(`/api/payload?artistId=${this.songData}&filter=${search}`);
 
-    return createHttpObservable(`/api/payload?artistId=${this.artistId}&filter=${search}`)
-      .pipe(
-        map((res: Isongs)=> res["payload"])
-      )
-  }
+  //  return createHttpObservable(`/api/payload?artistId=${this.songData}&filter=${search}`)
+  //    .pipe(
+  //      map((res: Isongs)=> res["payload"])
+  //    )
+  //}
 
 
 }
