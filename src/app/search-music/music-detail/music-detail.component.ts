@@ -16,6 +16,8 @@ import { HttpClient } from '@angular/common/http';
 export class MusicDetailComponent implements OnInit {
   artists$!: Observable<Iartists[]>;
 
+  songData!: string;
+
   http$!: Observable<Isongs>;
 
   songs$!: Observable<Isongs>;
@@ -34,13 +36,12 @@ export class MusicDetailComponent implements OnInit {
 
   ngOnInit() {
     debugger;
-    //this.http.get('/api/payload').subscribe(val => console.log("http get in music component"+ JSON.stringify(val)));
-  
-    const songData = this.route.snapshot.data["music"];
 
-    this.http$ = createHttpObservable(`/api/payload/${songData}`);
+    this.songData = this.route.snapshot.data["musicObj"];
 
-    this.http$.subscribe(console.log);
+
+    this.songs$ = createHttpObservable(`/api/payload/${this.songData}`);
+
 
 
     //http$.subscribe(
@@ -55,33 +56,33 @@ export class MusicDetailComponent implements OnInit {
     this.router.navigate(['/broadcaster/login']);
   }
 
-  //ngAfterViewInit() {
-  //  debugger;
-  //  const searchArtists$ = fromEvent<any>(this.searchInput.nativeElement, 'keyup')
-  //    .pipe(
-  //      map(event => event.target.value),
-  //      debounceTime(400),
-  //      distinctUntilChanged(),
-  //      switchMap(search => this.loadArtists(search))
-  //    );
+  ngAfterViewInit() {
+    debugger;
+    const searchArtists$ = fromEvent<any>(this.searchInput.nativeElement, 'keyup')
+      .pipe(
+        map(event => event.target.value),
+        debounceTime(400),
+        distinctUntilChanged(),
+        switchMap(search => this.loadArtists(search))
+      );
 
-  //  const initialArtists$ = this.loadArtists();
+    const initialArtists$ = this.loadArtists();
 
-  //  this.songs$ = concat(initialArtists$, searchArtists$);
+    this.songs$ = concat(initialArtists$, searchArtists$);
 
-  //}
+  }
 
 
-  //loadArtists(search = ''): Observable<Isongs>{
-  //  debugger;
+  loadArtists(search = ''): Observable<Isongs>{
+    debugger;
 
-  //  let result = createHttpObservable(`/api/payload?artistId=${this.songData}&filter=${search}`);
+    let result = createHttpObservable(`/api/payload${this.songData}&filter=${search}`);
 
-  //  return createHttpObservable(`/api/payload?artistId=${this.songData}&filter=${search}`)
-  //    .pipe(
-  //      map((res: Isongs)=> res["payload"])
-  //    )
-  //}
+    return createHttpObservable(`/api/payload?musicObj=${this.songData}&filter=${search}`)
+      .pipe(
+        map((res: Isongs)=> res["payload"])
+      )
+  }
 
 
 }

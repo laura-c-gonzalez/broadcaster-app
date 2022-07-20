@@ -43,12 +43,6 @@ export class BackOfficeService {
       )
   }
 
-  extractData(res) {
-    debugger;
-    let body = res.json();
-    console.log("body data = " + body);
-    return body.data || [];
-  }
 
 }
 //return this.http.get<Isongs[]>(`/api/payload/${musicUrl}`)

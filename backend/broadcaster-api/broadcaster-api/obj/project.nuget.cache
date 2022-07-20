@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "JY2KeHGcL7TP4EaT1PBsfHSTDchJEiQZvGMVj7AancKXGb9NpTiMLJ67hTKdZ4s/CsWksHPuoQUSFBWpbeJrDA==",
+  "dgSpecHash": "rCWLSf5K0K3EJTj9zvVe1DEIgFlo5N2RuFw/fp+RWqy/u8wEnRT0oTRWEub3A6xScbETKls1SgGgIY5Jksi6Mw==",
   "success": true,
   "projectFilePath": "D:\\broadcaster\\backend\\broadcaster-api\\broadcaster-api\\broadcaster-api.csproj",
   "expectedPackageFiles": [
@@ -133,7 +133,8 @@
     "C:\\Users\\lcgon\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\lcgon\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\lcgon\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\lcgon\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Users\\lcgon\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\lcgon\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
   ],
   "logs": []
 }
