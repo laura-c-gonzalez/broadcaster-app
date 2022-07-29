@@ -5,19 +5,20 @@ import { Isongs } from "../../home/Dto search/songs";
 import { BackOfficeService } from "../../shared-services/backoffice.service";
 
 @Injectable()
-export class MusicDetailResolver implements Resolve<Isongs>{
+export class MusicDetailResolver implements Resolve<Isongs[]>{
 
   constructor(private backoffice: BackOfficeService) { }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Isongs> {
- 
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Isongs[]>{
 
-    const musicUrl = route.paramMap.get("musicUrl");
+    const songSeq = route.paramMap.get("songSeq");
 
-    return this.backoffice.loadAllCourses(musicUrl)
+    return this.backoffice.loadAllCourses(songSeq)
       .pipe(
-        tap(val => console.log(val)
-        ))
+        tap(val => console.log("value of resolver"+val)
+        ),
+        first()
+      )
   
   }
   

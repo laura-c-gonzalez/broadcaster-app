@@ -14,7 +14,7 @@ export class BackOfficeService {
 
   constructor(private http: HttpClient) { }
 
-  url = '/api/payload';
+  url = '/api/payload/';
 
 
   getArtists(): Observable<Iartists[]> {
@@ -23,8 +23,13 @@ export class BackOfficeService {
   }
 
 
-  getArtistById(id: number): Observable<Iartists> {
-    return this.http.get<Iartists>(`${this.url}/${id}`) as Observable<Iartists>;
+  getSongsById(id): Observable<Isongs>{
+    debugger;
+    return this.http.get<Isongs>(`${this.url}/${id}`)
+      .pipe(
+        tap(_ => console.log(`fetched hero id=${id}`)),
+        shareReplay()
+      );
   }
 
   searchLessons(search: string): Observable<Isongs[]> {
@@ -35,15 +40,19 @@ export class BackOfficeService {
     })
   }
 
-  loadAllCourses(musicUrl) {
-    return this.http.get<Isongs>(`/api/payload`)
-      .pipe( 
-      shareReplay(),
-   
+  loadAllCourses(songSeq): Observable<Isongs[]> {
+
+    return this.http.get<Isongs[]>(`/api/payload`)
+      .pipe(
+        shareReplay(),
+
       )
   }
 
 
 }
-//return this.http.get<Isongs[]>(`/api/payload/${musicUrl}`)
-/*return this.http.get<Isongs[]>(`/api/payload`, { params: { musicUrl } })*/
+
+
+
+
+//return this.http.get<Isongs>(`${this.url}/${id}`

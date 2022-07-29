@@ -4,13 +4,13 @@
       "id": 1,
       "songName": "joe_Song1",
       "length": 3.5,
-      "trackImage": "joe_song1"
+      "trackImage": "joe_song1.png"
     },
     {
       "id": 2,
       "songName": "Lana_song2",
       "length": 3.8,
-      "trackImage": "Lana_song2"
+      "trackImage": "Lana_song2.png"
 
 
     }

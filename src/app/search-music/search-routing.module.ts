@@ -11,7 +11,16 @@ import { MusicDetailResolver } from './services/music-detail.resolver';
 const searchRoutes: Routes = [
 
   {
-    path: 'musicUrl',
+    path: '',
+    component: SearchMusicComponent,
+  },
+  //{
+  //  path: '',
+  //  redirectTo: 'search',
+  //  pathMatch: 'full'
+  //},
+  {
+    path: ':songSeq',
     component: MusicDetailComponent,
     resolve: {
       musicObj: MusicDetailResolver
@@ -25,7 +34,8 @@ const searchRoutes: Routes = [
     path: 'search/artist',
     component: ArtistSearchComponent
   }
-];
+
+]
 
 @NgModule({
   declarations: [
@@ -41,3 +51,28 @@ const searchRoutes: Routes = [
 })
 
 export class SearchRoutingModule { }
+
+//{
+//  path: '',
+//    component: SearchMusicComponent,
+//      redirectTo: 'search',
+//        pathMatch: 'full',
+//          children: [
+//            {
+//              path: ':id',
+//              component: MusicDetailComponent,
+//              resolve: {
+//                musicObj: MusicDetailResolver
+//              }
+//            },
+//            {
+//              path: 'search/genre',
+//              component: GenreSearchComponent
+//            },
+//            {
+//              path: 'search/artist',
+//              component: ArtistSearchComponent
+//            }
+//          ]
+//}
+//];

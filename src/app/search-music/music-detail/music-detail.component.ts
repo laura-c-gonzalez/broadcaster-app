@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BackOfficeService } from '../../shared-services/backoffice.service';
 import { Iartists } from '../../home/Dto search/artists';
 import { Isongs } from '../../home/Dto search/songs';
-import { Observable, map, switchMap, fromEvent, debounceTime, distinctUntilChanged, noop, concat } from 'rxjs';
+import { Observable, map, switchMap, fromEvent, debounceTime, distinctUntilChanged, noop, concat, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthStore } from '../../shared-services/auth-store/auth-store';
 import { createHttpObservable } from '../../shared-services/utils';
@@ -16,11 +16,11 @@ import { HttpClient } from '@angular/common/http';
 export class MusicDetailComponent implements OnInit {
   artists$!: Observable<Iartists[]>;
 
-  songData!: string;
+  songData;
 
   http$!: Observable<Isongs>;
 
-  songs$!: Observable<Isongs>;
+  songs$!: Observable<Isongs[]>;
 
   isVisible: boolean = false;
 
@@ -35,13 +35,14 @@ export class MusicDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    debugger;
+
 
     this.songData = this.route.snapshot.data["musicObj"];
 
 
-    this.songs$ = createHttpObservable(`/api/payload/${this.songData}`);
+    this.songs$ = createHttpObservable(`/api/payload / ${this.songData}`);
 
+    console.log("this.songs$"+ this.songs$)
 
 
     //http$.subscribe(
@@ -57,7 +58,7 @@ export class MusicDetailComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    debugger;
+   
     const searchArtists$ = fromEvent<any>(this.searchInput.nativeElement, 'keyup')
       .pipe(
         map(event => event.target.value),
@@ -72,17 +73,15 @@ export class MusicDetailComponent implements OnInit {
 
   }
 
+  loadArtists(search = ''): Observable<Isongs[]>{
 
-  loadArtists(search = ''): Observable<Isongs>{
-    debugger;
 
     let result = createHttpObservable(`/api/payload${this.songData}&filter=${search}`);
 
     return createHttpObservable(`/api/payload?musicObj=${this.songData}&filter=${search}`)
-      .pipe(
-        map((res: Isongs)=> res["payload"])
-      )
+      //.pipe(
+      //  map((res: Isongs)=> res["payload"])
+      //)
   }
-
 
 }

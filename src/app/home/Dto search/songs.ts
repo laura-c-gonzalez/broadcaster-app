@@ -4,6 +4,7 @@ export interface Isongs {
   length: number;
   trackImage: any;
 }
+
 export class Home implements Isongs {
   id!: number;
   songName!: string;

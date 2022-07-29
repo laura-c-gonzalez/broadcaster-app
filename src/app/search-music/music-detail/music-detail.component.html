@@ -1,10 +1,10 @@
 <p>music detail works!</p>
 <router-outlet></router-outlet>
 
-<ul *ngIf="(http$ | async) as song">
+<!--<ul *ngIf="(songs$ | async) as song">
 
-  <li>{{song.songName}}</li>
-</ul>
+  <li>{{song[0].songName}}</li>
+</ul>-->
 
 <div class="container text-center mt-4">
 
@@ -31,15 +31,15 @@
     </thead>
     <tbody>
 
-      <!--<tr *ngFor="let art of (songs$ | async ) ">
-        <td>{{art.id}}</td>
-        <td>{{art.songName}}</td>
-        <td>{{art.length}}</td>
-        <td>{{art.trackImage}}</td>
-        <td><button class="btn btn-primary">View song</button></td>-->
-      <!-- include a property with the url for each song - url (string) and in object the URL
-      and do a relative router navigation[routerLink]="'[art.url]'". Please see Router Path Variables - Variable Target Routes with the Router Link Directive -->
-      <!--</tr>-->
+      <tr *ngFor="let song of songs$ | async  ">
+        <td>{{song.id}}</td>
+        <td>{{song.songName}}</td>
+        <td>{{song.length}}</td>
+        <td>{{song.trackImage}}</td>
+        <td><button class="btn btn-primary">View song</button></td>
+        <!-- include a property with the url for each song - url (string) and in object the URL
+        and do a relative router navigation[routerLink]="'[art.url]'". Please see Router Path Variables - Variable Target Routes with the Router Link Directive -->
+      </tr>
     </tbody>
   </table>
 
