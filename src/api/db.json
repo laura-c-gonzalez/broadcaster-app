@@ -2,17 +2,39 @@
   "payload": [
     {
       "id": 1,
-      "songName": "joe_Song1",
+      "songName": "anna_SongA",
       "length": 3.5,
-      "trackImage": "joe_song1.png"
+      "trackImage": "anna_SongA.png"
     },
     {
       "id": 2,
-      "songName": "Lana_song2",
+      "songName": "bernice_songB",
       "length": 3.8,
-      "trackImage": "Lana_song2.png"
-
-
+      "trackImage": "Lana_songB.png"
+    },
+    {
+      "id": 3,
+      "songName": "charlie_SongC",
+      "length": 3.5,
+      "trackImage": "charlie_songC.png"
+    },
+    {
+      "id": 4,
+      "songName": "dana_songD",
+      "length": 3.8,
+      "trackImage": "dana_songD.png"
+    },
+    {
+      "id": 5,
+      "songName": "ella_SongE",
+      "length": 3.5,
+      "trackImage": "ella_songE.png"
+    },
+    {
+      "id": 6,
+      "songName": "fania_songF",
+      "length": 3.8,
+      "trackImage": "fabia_songF.png"
     }
   ]
 

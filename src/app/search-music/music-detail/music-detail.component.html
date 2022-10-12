@@ -11,15 +11,24 @@
 
 
   <form class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #searchInput>
+    <div class="input-box">
+      <label for="search">Search</label>
+      <input type="text" (keyup)="onSearch($event)"/>
+    </div>
+    <!--<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #searchInput>-->
     <!--<button class="btn btn-outline-success" type="submit">Search</button>-->
   </form>
+  <div>
+    <ul>
+      <li *ngFor="let n of songs$ | async">
+        {{n.songName}}
+        <img [src]="" />
+      </li>
+    </ul>
+  </div>
   <br />
-  <form class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #searchInput>
-  </form>
 
-  <table class="table table-striped table-bordered table-sm row-border hover" id="">
+  <!--<table class="table table-striped table-bordered table-sm row-border hover" id="">
     <thead>
       <tr>
         <th>ID</th>
@@ -36,12 +45,12 @@
         <td>{{song.songName}}</td>
         <td>{{song.length}}</td>
         <td>{{song.trackImage}}</td>
-        <td><button class="btn btn-primary">View song</button></td>
+        <td><button class="btn btn-primary">View song</button></td>-->
         <!-- include a property with the url for each song - url (string) and in object the URL
         and do a relative router navigation[routerLink]="'[art.url]'". Please see Router Path Variables - Variable Target Routes with the Router Link Directive -->
-      </tr>
+      <!--</tr>
     </tbody>
-  </table>
+  </table>-->
 
 
 </div>

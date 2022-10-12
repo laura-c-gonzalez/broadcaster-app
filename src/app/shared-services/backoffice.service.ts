@@ -40,13 +40,19 @@ export class BackOfficeService {
     })
   }
 
-  loadAllCourses(songSeq): Observable<Isongs[]> {
+  loadAllCourses(value): Observable<Isongs> {
+    debugger;
+    //return this.http.get<Isongs[]>(`/api/payload`)
+    return this.http.get<Isongs>(`/api/payload?${value}`)
+      //.pipe(map((d: any) =>
+        //console.log(d)
+        //return d;
+        //d.payload
+      /*));*/
+     
 
-    return this.http.get<Isongs[]>(`/api/payload`)
-      .pipe(
-        shareReplay(),
 
-      )
+      
   }
 
 

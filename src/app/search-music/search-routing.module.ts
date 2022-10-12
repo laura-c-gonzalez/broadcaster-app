@@ -6,7 +6,7 @@ import { SearchMusicComponent } from './search-music.component';
 import { MusicDetailComponent } from './music-detail/music-detail.component';
 import { GenreSearchComponent } from './genre-search/genre-search.component';
 import { ArtistSearchComponent } from './artist-search/artist-search.component';
-import { MusicDetailResolver } from './services/music-detail.resolver';
+/*import { MusicDetailResolver } from './services/music-detail.resolver';*/
 
 const searchRoutes: Routes = [
 
@@ -20,10 +20,10 @@ const searchRoutes: Routes = [
   //  pathMatch: 'full'
   //},
   {
-    path: ':songSeq',
+    path: 'music',
     component: MusicDetailComponent,
     resolve: {
-      musicObj: MusicDetailResolver
+      //musicObj: MusicDetailResolver
     }
   },
   {
@@ -46,7 +46,7 @@ const searchRoutes: Routes = [
   ],
   exports: [RouterModule],
   providers: [
-    MusicDetailResolver
+    //MusicDetailResolver
   ]
 })
 
