@@ -23,10 +23,11 @@ export class BackOfficeService {
   }
 
 
-  getSongsById(id): Observable<Isongs>{
+  getSongsById(id): Observable<any>{
     debugger;
-    return this.http.get<Isongs>(`${this.url}/${id}`)
+    return this.http.get<any>(`${this.url}/${id}`)
       .pipe(
+        map(d => d.id),
         tap(_ => console.log(`fetched hero id=${id}`)),
         shareReplay()
       );
@@ -40,15 +41,22 @@ export class BackOfficeService {
     })
   }
 
-  loadAllCourses(value): Observable<Isongs> {
-    debugger;
+  loadAllCourses(value): Observable<any> {
+/*    debugger;*/
     //return this.http.get<Isongs[]>(`/api/payload`)
-    return this.http.get<Isongs>(`/api/payload?${value}`)
+    return this.http.get(`/api/payload?q=${value}`)
+      //.pipe(
+      //  map(d => d.),
+      //  tap(_ => console.log(`fetched value=${value}`)),
+      //  shareReplay()
+      //)
+
       //.pipe(map((d: any) =>
-        //console.log(d)
-        //return d;
-        //d.payload
-      /*));*/
+      //  //console.log(d)
+      //  //return d;
+      //  //d.payload
+      //  d.value
+      //));
      
 
 

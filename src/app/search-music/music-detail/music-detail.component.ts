@@ -38,14 +38,16 @@ export class MusicDetailComponent implements OnInit {
 
   loadCourses(value: any) {
 
+    //this.songs$ = this.backofficeService.getSongsById(id);
+
     this.songs$ = this.backofficeService.loadAllCourses(value);
 
-    //this.backofficeService.loadAllCourses(value).subscribe(
-    //  d => { console.log(d)
-    //  },
-    //  error => {
-    //  console.error(error);
-    //})
+  //  this.backofficeService.loadAllCourses(value).subscribe(
+  //    d => { console.log(d)
+  //    },
+  //    error => {
+  //    console.error(error);
+  //  })
   }
 
 
