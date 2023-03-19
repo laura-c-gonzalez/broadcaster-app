@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div id="carouselExampleCaptions" class="carousel slide col-md-9" data-bs-ride="carousel">
+    <!--<div id="carouselExampleCaptions" class="carousel slide col-md-9" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -16,7 +16,7 @@
         </div>
         <div class="carousel-item">
           <!--<img src="file:/D:/broadcaster/broadcasterimages/dj-abstract.jpg" class="d-block w-100" alt="...">-->
-          <img src="https://img.redbull.com/images/c_fill,w_1500,h_1000,g_auto,f_auto,q_auto/redbullcom/2017/11/13/5445313e-4e0a-4474-9af7-0d2e2b7227c1/dj" class="d-block w-100" alt="...">
+          <!--<img src="https://img.redbull.com/images/c_fill,w_1500,h_1000,g_auto,f_auto,q_auto/redbullcom/2017/11/13/5445313e-4e0a-4474-9af7-0d2e2b7227c1/dj" class="d-block w-100" alt="...">
           <div class="carousel-caption d-none d-md-block">
             <h5>Second slide label</h5>
             <p>Some representative placeholder content for the second slide.</p>
@@ -38,41 +38,65 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
+    </div>-->
+
+    <!--New corousel!!!!!!!!!-->
+
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/BXoCcli6Gjgt702lg/videoblocks-dj-hands-control-sound-console-for-mixing-music-in-disco-club-fingers-touch-buttons-sliders-playing-electronic-music-on-deck-color-lights-show-in-nightclub-dance-party-close-up-in-slow-motion_bwcpkr4ys_thumbnail-1080_01.png" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://img.redbull.com/images/c_fill,w_1500,h_1000,g_auto,f_auto,q_auto/redbullcom/2017/11/13/5445313e-4e0a-4474-9af7-0d2e2b7227c1/dj" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://www.magneticmag.com/.image/t_share/MTMzMDU3ODYyMTQ5NjU0NTM4/edm-culture-9-female-djs-that-should-have-your-attention.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden"><<</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">>></span>
+      </button>
     </div>
 
     <form [formGroup]="loginForm" class="was-validated col-md-3" novalidate (ngSubmit)="onSubmit()">
       <h4>Login</h4>
-        <label for="inputEmail" class="form-label">Email</label>
-        <input type="email"
-               class="form-control"
-               id="inputEmail"
-               placeholder="Enter Email"
-               formControlName="email"
-               required>
-        <div class="invalid-feedback"
-             *ngIf="emailControl.touched">Please enter a valid email</div>
+      <label for="inputEmail" class="form-label">Email</label>
+      <input type="email"
+             class="form-control"
+             id="inputEmail"
+             placeholder="Enter Email"
+             formControlName="email"
+             required>
+      <div class="invalid-feedback"
+           *ngIf="emailControl.touched">Please enter a valid email</div>
 
-  
-        <label for="inputPassword"
-               class="form-label">Password</label>
-        <input type="password"
-               class="form-control"
-               id="inputPassword"
-               placeholder="Enter Password"
-               formControlName="password"
-               [ngClass]="{'is-invalid': passwordControl.errors &&
+
+      <label for="inputPassword"
+             class="form-label">Password</label>
+      <input type="password"
+             class="form-control"
+             id="inputPassword"
+             placeholder="Enter Password"
+             formControlName="password"
+             [ngClass]="{'is-invalid': passwordControl.errors &&
              (passwordControl.touched || passwordControl.dirty)}"
-               required>
-        <div class="invalid-feedback"
-             *ngIf="passwordControl.errors | onlyOneError:['minlength','invalidPassword'] as displayError">
-          <div *ngIf="displayError?.['minlength']">
-            Password length must be greater {{displayError?.['minlength'].requiredLength}} characters.
-          </div>
-          <div *ngIf="displayError?.['invalidPassword']">
-            Password must have upper case, lower case, numeric value.
-          </div>
+             required>
+      <div class="invalid-feedback"
+           *ngIf="passwordControl.errors | onlyOneError:['minlength','invalidPassword'] as displayError">
+        <div *ngIf="displayError?.['minlength']">
+          Password length must be greater {{displayError?.['minlength'].requiredLength}} characters.
         </div>
-      
+        <div *ngIf="displayError?.['invalidPassword']">
+          Password must have upper case, lower case, numeric value.
+        </div>
+      </div>
+
       <div class="col">
         <button class="btn btn-primary" [disabled]="!loginForm.valid" type="submit">Login</button>
       </div>

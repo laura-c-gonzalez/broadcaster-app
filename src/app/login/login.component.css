@@ -1,4 +1,4 @@
-.form-control.ng-untouched {
+/*.form-control.ng-untouched {
   border-color: #cecece;
   background-image: none;
 }
@@ -7,7 +7,7 @@
   border-color: #dc3545;
   background-image: none;
   box-shadow:none;
-}
+}*/
 
 h5 {
   color: white;
@@ -16,6 +16,23 @@ h5 {
 li {
   font-size: 2em
 }
+
+
+
+.carousel-control-next, .carousel-control-prev {
+  opacity: 0.1;
+  color: black;
+  border-style: hidden;
+  border-radius: 10px;
+  font-family:fantasy;
+  font-size: x-large;
+}
+
+  .carousel-control-next:hover, .carousel-control-prev:hover {
+    color: dimgray;
+    opacity: 0.3;
+  }
+
 
 
 

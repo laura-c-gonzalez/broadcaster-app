@@ -1,109 +1,78 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
-            aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Broadcaster</a>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item fs-4 text">
-          <a routerLink="/broadcaster/login/register"
-             *ngIf="!(authStore.isUserLoggedIn$ | async)"
-             class="nav-link">
-            Register
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item active fs-4 text">
-          <a routerLink="/broadcaster/login"
-             *ngIf="!(authStore.isUserLoggedIn$ | async)"
-             class="nav-link">
-            Login
-          </a>
-        </li>
-        <li class="nav-item active fs-4 text">
-          <a *ngIf="authStore.isUserLoggedIn$ | async"
-             routerLink="/broadcaster/upload"
-             class="nav-link">
-            My Uploads
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item fs-4 text">
-          <a routerLink="/broadcaster/search/music"
-             *ngIf="authStore.isUserLoggedIn$ | async"
-             class="nav-link">
-            Search New Music
-          </a>
-        </li>
-        <li class="nav-item fs-4 text">
-          <a routerLink="/broadcaster/my-playlist"
-             *ngIf="authStore.isUserLoggedIn$ | async"
-             class="nav-link">
-            My Playlists
-          </a>
-        </li>
-        <li class="nav-item fs-4 text">
-          <a routerLink="/broadcaster/stats"
-             *ngIf="authStore.isUserLoggedIn$ | async"
-             class="nav-link">
-            My Stats
-          </a>
-        </li>
-        <li class="nav-item active fs-4 text">
-          <a (click)="logout()"
-             routerLink="/broadcaster/login"
-             *ngIf="authStore.isUserLoggedIn$ | async"
-             class="nav-link">
-            Logout
-            <span class="sr-only">(current)</span>
-          </a>
-        </li>
-      </ul>
-
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #searchInput *ngIf="authStore.isUserLoggedIn$ | async">
-        <!--<button class="btn btn-outline-success" type="submit">Search</button>-->
-      </form>
-
-      <!--<table>
-        <tr>
-          <td>Artist Name</td>
-        </tr>
-
-        <tr *ngFor="let art of getKeys(artists$| async)">
-          <td>{{art[art].artistName}}</td>
-        </tr>
-
-      </table>-->
-
-
-      <!--<table> was using this
-        <tr>
-          <td>Artist Name</td>
-        </tr>
-        <tr *ngFor="let art of (artists$ | async) ">
-          <td>{{art.artistName}}</td>
-        </tr>
-
-      </table>-->
-
-      
-      <!--<ul>
-        <li *ngFor="let artists of artists$ | async; index as i">
-          {{artists.artistName}}
-        </li>
-      </ul>-->
-
-
-    </div>
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand" href="#">Broadcaster</a>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item fs-4 text">
+        <a routerLink="/broadcaster/login/register"
+           *ngIf="!(authStore.isUserLoggedIn$ | async)"
+           class="nav-link">
+          Register
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item active fs-4 text">
+        <a routerLink="/broadcaster/login"
+           *ngIf="!(authStore.isUserLoggedIn$ | async)"
+           class="nav-link">
+          Login
+        </a>
+      </li>
+      <li class="nav-item active fs-4 text">
+        <a *ngIf="authStore.isUserLoggedIn$ | async"
+           routerLink="/broadcaster/upload"
+           class="nav-link">
+          My Uploads
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item fs-4 text">
+        <a routerLink="/broadcaster/search/music"
+           *ngIf="authStore.isUserLoggedIn$ | async"
+           class="nav-link">
+          Search New Music
+        </a>
+      </li>
+      <li class="nav-item fs-4 text">
+        <a routerLink="/broadcaster/my-playlist"
+           *ngIf="authStore.isUserLoggedIn$ | async"
+           class="nav-link">
+          My Playlists
+        </a>
+      </li>
+      <li class="nav-item fs-4 text">
+        <a routerLink="/broadcaster/stats"
+           *ngIf="authStore.isUserLoggedIn$ | async"
+           class="nav-link">
+          My Stats
+        </a>
+      </li>
+      <li class="nav-item active fs-4 text">
+        <a (click)="logout()"
+           routerLink="/broadcaster/login"
+           *ngIf="authStore.isUserLoggedIn$ | async"
+           class="nav-link">
+          Logout
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+    </ul>
   </div>
-
+  <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" #searchInput *ngIf="authStore.isUserLoggedIn$ | async">
+    <!--<button class="btn btn-outline-success" type="submit">Search</button>-->
+  </form>
+  </div>
+  </div>
 </nav>
-
 <router-outlet></router-outlet>
+
 
 <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
   <p class="col-md-4 mb-0 text-muted">©2022 Broadcaster</p>
@@ -130,7 +99,3 @@
 </footer>
 
 
-
-<!--*ngIf="authStore.isUserLoggedIn$ | async"-->
-
-<!--<table *ngIf="(artists$ | async) as artists">-->

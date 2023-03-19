@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BackOfficeService } from '../../shared-services/backoffice.service';
 import { Iartists } from '../../home/Dto search/artists';
 import { Isongs } from '../../home/Dto search/songs';
-import { Observable, map, switchMap, fromEvent, debounceTime, distinctUntilChanged, noop, concat, of, Subject } from 'rxjs';
+import { Observable, map, switchMap, fromEvent, debounceTime, distinctUntilChanged, noop, concat, of, Subject, BehaviorSubject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthStore } from '../../shared-services/auth-store/auth-store';
 import { createHttpObservable } from '../../shared-services/utils';
@@ -16,7 +16,9 @@ import { HttpClient } from '@angular/common/http';
 export class MusicDetailComponent implements OnInit {
   songs$!: Observable<any>;
 
-  private subjectKeyUp = new Subject<any>();
+  private subjectKeyUp = new BehaviorSubject<any>([]);
+
+  //private subjectKeyUp = new Subject<any>();
 
   constructor(private backofficeService: BackOfficeService) { }
 
@@ -31,12 +33,13 @@ export class MusicDetailComponent implements OnInit {
   onSearch($event: any) {
 
     const value = $event.target.value;
-    this.subjectKeyUp.next(value);
+    //this.subjectKeyUp.next(value);
     console.log(value);
     this.loadCourses(value);
   }
 
-  loadCourses(value: any) {
+  loadCourses(value: Observable<any>) {
+    console.log("result of load courses " +this.songs$)
 
     //this.songs$ = this.backofficeService.getSongsById(id);
 
