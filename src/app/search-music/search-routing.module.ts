@@ -34,7 +34,7 @@ const searchRoutes: Routes = [
     path: 'search/artist',
     component: ArtistSearchComponent
   }
-
+  //http://localhost:4200/broadcaster/search/search/artist
 ]
 
 @NgModule({

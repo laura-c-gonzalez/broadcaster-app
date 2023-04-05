@@ -4,6 +4,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login.component';
 import { LogoutComponent } from './logout/logout.component';
+import { PrevDirective } from '../shared-services/multi-slide/prev.directive';
 
 const loginRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -17,10 +18,12 @@ const loginRoutes: Routes = [
   imports: [
     RouterModule.forChild(loginRoutes),
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    
   ],
-  exports: [RouterModule],
+  exports: [
+    RouterModule
+  ],
   providers: []
 })
 export class loginModule { }
