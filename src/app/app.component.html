@@ -32,12 +32,23 @@
           <span class="sr-only">(current)</span>
         </a>
       </li>
-      <li class="nav-item fs-4 text">
+      <li class="nav-item dropdown  nav-item fs-4 text">
         <a routerLink="/broadcaster/search/music"
            *ngIf="authStore.isUserLoggedIn$ | async"
-           class="nav-link">
+           class="nav-link nav-link dropdown-toggle"
+           role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Search New Music
         </a>
+        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+          <li>
+            <a routerLink="/broadcaster/search/search/artist"
+               class="dropdown-item" *ngIf="authStore.isUserLoggedIn$ | async">Artist</a>
+          </li>
+          <li>
+            <a routerLink="/broadcaster/search/search/genre"
+               class="dropdown-item" *ngIf="authStore.isUserLoggedIn$ | async">Genre</a>
+          </li>
+        </ul>
       </li>
       <li class="nav-item fs-4 text">
         <a routerLink="/broadcaster/my-playlist"
