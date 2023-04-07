@@ -39,12 +39,16 @@ const searchRoutes: Routes = [
 
 @NgModule({
   declarations: [
-
+    
   ],
   imports: [
-    RouterModule.forChild(searchRoutes)
+    RouterModule.forChild(searchRoutes),
+    
   ],
-  exports: [RouterModule],
+  exports: [
+    RouterModule,
+
+  ],
   providers: [
     //MusicDetailResolver
   ]

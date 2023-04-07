@@ -6,7 +6,8 @@ import { ArtistSearchComponent } from './artist-search/artist-search.component';
 import { GenreSearchComponent } from './genre-search/genre-search.component';
 import { MusicDetailComponent } from './music-detail/music-detail.component';
 import { SearchRoutingModule } from './search-routing.module';
-
+import { PrevDirective } from '../shared-services/multi-slide/prev.directive';
+import { NextDirective } from '../shared-services/multi-slide/next.directive';
 
 
 
@@ -19,7 +20,9 @@ import { SearchRoutingModule } from './search-routing.module';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    SearchRoutingModule
+    SearchRoutingModule,
+    PrevDirective,
+    NextDirective
   ],
   exports: [RouterModule],
   providers: [

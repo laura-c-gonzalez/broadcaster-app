@@ -54,7 +54,8 @@ registerLocaleData(en);
     AppComponent,
     AppRoutingModule,
     CommonModule,
-    
+    PrevDirective,
+    NextDirective
   ],
   providers: [AuthStore],
   bootstrap: [AppComponent]
