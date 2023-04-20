@@ -19,8 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { OnlyOneErrorPipe } from './pipes/only-one-error.pipe';
 import { AuthStore } from './shared-services/auth-store/auth-store';
-import { PrevDirective } from './shared-services/multi-slide/prev.directive';
-import { NextDirective } from './shared-services/multi-slide/next.directive';
+import { AllInOneModuleModule } from './shared-services/all-in-one-module/all-in-one-module.module';
+//import { PrevDirective } from './shared-services/multi-slide/prev.directive';
+//import { NextDirective } from './shared-services/multi-slide/next.directive';
 
 //issue with import here!!
 
@@ -39,8 +40,8 @@ registerLocaleData(en);
     UploadFormComponent,
     EditSongFormComponent,
     OnlyOneErrorPipe,
-    PrevDirective,
-    NextDirective
+    //PrevDirective,
+    //NextDirective
   ],
   imports: [
     BrowserModule,
@@ -48,14 +49,16 @@ registerLocaleData(en);
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AllInOneModuleModule
   ],
   exports: [
     AppComponent,
     AppRoutingModule,
     CommonModule,
-    PrevDirective,
-    NextDirective
+    
+    //PrevDirective,
+    //NextDirective
   ],
   providers: [AuthStore],
   bootstrap: [AppComponent]
