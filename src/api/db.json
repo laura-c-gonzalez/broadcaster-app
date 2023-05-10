@@ -4,37 +4,43 @@
       "id": 1,
       "songName": "anna_SongA",
       "length": 3.5,
-      "trackImage": "anna_SongA.png"
+      "trackImage": "anna_SongA.png",
+      "mp3": "./mp3-songs/amen-break-no-copyright-remake-120bpm-25924.mp3"
     },
     {
       "id": 2,
       "songName": "bernice_songB",
       "length": 3.8,
-      "trackImage": "Lana_songB.png"
+      "trackImage": "Lana_songB.png",
+      "mp3": "./mp3-songs/angelical-pad-143276.mp3"
     },
     {
       "id": 3,
       "songName": "charlie_SongC",
       "length": 3.5,
-      "trackImage": "charlie_songC.png"
+      "trackImage": "charlie_songC.png",
+      "mp3": "./mp3-songs/cinematic-intro-6097.mp3"
     },
     {
       "id": 4,
       "songName": "dana_songD",
       "length": 3.8,
-      "trackImage": "dana_songD.png"
+      "trackImage": "dana_songD.png",
+      "mp3": "./mp3-songs/epic-logo-6906.mp3"
     },
     {
       "id": 5,
       "songName": "ella_SongE",
       "length": 3.5,
-      "trackImage": "ella_songE.png"
+      "trackImage": "ella_songE.png",
+      "mp3": "./mp3-songs/horror-hit-logo-142395.mp3"
     },
     {
       "id": 6,
       "songName": "fania_songF",
       "length": 3.8,
-      "trackImage": "fabia_songF.png"
+      "trackImage": "fabia_songF.png",
+      "mp3": "./mp3-songs/no-evidence-of-disease-144022.mp3"
     }
   ]
 
