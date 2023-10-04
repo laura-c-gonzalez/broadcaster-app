@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, empty, expand, first, map, Observable, of, reduce, switchMap, tap, throwError } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { Iartists } from '../home/Dto search/artists';
 import { Isongs } from "../home/Dto search/songs";
 import { shareReplay } from 'rxjs';
@@ -15,6 +15,7 @@ export class BackOfficeService {
   constructor(private http: HttpClient) { }
 
   url = '/api/payload/';
+  getUrl = '/api'
 
 
   getArtists(): Observable<Iartists[]> {
@@ -23,7 +24,7 @@ export class BackOfficeService {
   }
 
 
-  getSongsById(id): Observable<any>{
+  getSongsById(id): Observable<any> {
     debugger;
     return this.http.get<any>(`${this.url}/${id}`)
       .pipe(
@@ -41,32 +42,20 @@ export class BackOfficeService {
     })
   }
 
-  loadAllCourses(value): Observable<any> {
-/*    debugger;*/
-    //return this.http.get<Isongs[]>(`/api/payload`)
-    return this.http.get(`/api/payload?q=${value}`)
-      //.pipe(
-      //  map(d => d.),
-      //  tap(_ => console.log(`fetched value=${value}`)),
-      //  shareReplay()
-      //)
+  loadAllCourses(value): Observable<Isongs[]> {
 
-      //.pipe(map((d: any) =>
-      //  //console.log(d)
-      //  //return d;
-      //  //d.payload
-      //  d.value
-      //));
-     
+    return this.http.get<Isongs[]>(this.url).pipe(map((res:any)=>res))
 
-
-      
   }
 
-
+  updatePlayCount(songId: number, updatedCount: number): Observable<Isongs> {
+    debugger
+    const urlPut = `http://localhost:3000/payload/${songId}`;
+    // Send a PUT request to update the play count
+    return this.http.put<Isongs>(urlPut, { playCount: updatedCount });
+  }
 }
 
 
 
 
-//return this.http.get<Isongs>(`${this.url}/${id}`

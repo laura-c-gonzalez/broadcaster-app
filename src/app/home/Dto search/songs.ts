@@ -3,6 +3,8 @@ export interface Isongs {
   songName: string;
   length: number;
   trackImage: any;
+  mp3: string;
+  playCount: number;
 }
 
 export class Home implements Isongs {
@@ -10,4 +12,6 @@ export class Home implements Isongs {
   songName!: string;
   length!: number;
   trackImage!: any;
+  mp3!: string;
+  playCount!: number;
 }

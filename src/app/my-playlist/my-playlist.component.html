@@ -22,13 +22,23 @@
 
 <table class="table">
   <thead>
-    <tr *ngFor="let n of songs$ | async">
-      <th scope="col">{{n.songName}}</th>
+    <tr>
+      <th>Artist Name</th>
+      <th>Song</th>
     </tr>
   </thead>
   <tbody>
+
     <tr *ngFor="let n of songs$ | async">
-      <th scope="row"><audio controls>{{n.mp3}}</audio></th>
+      <td scope="col">{{n.songName}}</td>
+      <td scope="row"><audio controls src={{n.mp3}} type="audio/mp3"></audio></td>
+    </tr>
+    <tr>
+      <td>
+        <audio controls><source src="./my-paylist/amen-break-no-copyright-remake-120bpm-25924.mp3" type="audio/mp3"></audio>
+      </td>
     </tr>
   </tbody>
 </table>
+
+<!--<source [src]="n.mp3" type="audio/mp3">-->
