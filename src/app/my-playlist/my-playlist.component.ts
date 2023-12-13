@@ -4,6 +4,7 @@ import { Observable, debounceTime, distinctUntilChanged, BehaviorSubject, map } 
 import { Isongs } from '../home/Dto search/songs';
 
 
+
 @Component({
   selector: 'app-my-playlist',
   templateUrl: './my-playlist.component.html',
@@ -14,6 +15,7 @@ export class MyPlaylistComponent implements OnInit {
   songs$!: Observable<any>;
 
   private subjectKeyUp = new BehaviorSubject<any>([]);
+
 
   constructor(private backofficeService: BackOfficeService) { }
 
@@ -28,17 +30,19 @@ export class MyPlaylistComponent implements OnInit {
   }
 
 
-  loadCourses(value: Observable<Isongs[]>) {
+  loadCourses(value: Isongs[]) {
 
     this.songs$ = this.backofficeService.loadAllCourses(value)
   }
 
-  playSong(song: Isongs): void {
-    song.playCount++;
-    this.backofficeService.updatePlayCount(song.id, song.playCount).subscribe(updatedSong => {
-      // Handle updated song data if needed
-    })
+  //playSong(song: Isongs): void {
+  //  song.playCount++;
+  //  //this.songs$ = this.backofficeService.updatePlayCount(song.id, song.playCount)
 
-  }
+  //  //this.songs$ = this.backofficeService.updatePlayCount(song.id, song.playCount).subscribe(updatedSong => {
+  //  //  // Handle updated song data if needed
+  //  //})
+
+  //}
 
 }
