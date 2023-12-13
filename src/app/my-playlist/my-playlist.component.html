@@ -20,6 +20,7 @@
   </ul>
 </div>-->
 
+
 <table class="table">
   <thead>
     <tr>
@@ -33,12 +34,22 @@
       <td scope="col">{{n.songName}}</td>
       <td scope="row"><audio controls src={{n.mp3}} type="audio/mp3"></audio></td>
     </tr>
-    <tr>
-      <td>
-        <audio controls><source src="./my-paylist/amen-break-no-copyright-remake-120bpm-25924.mp3" type="audio/mp3"></audio>
-      </td>
-    </tr>
+
+
+
   </tbody>
 </table>
+
+
+
+
+<!--<tr *ngFor="let n of songs$ | async">
+  <td scope="col">{{n.songName}}</td>
+  <td scope="row">
+    <audio controls>
+      <source [src]=n.mp3 type="audio/mp3" />
+    </audio>
+  </td>
+</tr>-->
 
 <!--<source [src]="n.mp3" type="audio/mp3">-->

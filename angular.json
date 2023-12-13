@@ -17,6 +17,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "NgModule"
+            ],
             "outputPath": "dist/broadcaster-app",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -105,6 +109,5 @@
           }
         }
     }
-  },
-  "defaultProject": "broadcaster-app"
+  }
 }

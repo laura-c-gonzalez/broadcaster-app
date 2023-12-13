@@ -31,8 +31,11 @@ export class MyPlaylistComponent implements OnInit {
 
 
   loadCourses(value: Isongs[]) {
+    
 
     this.songs$ = this.backofficeService.loadAllCourses(value)
+
+
   }
 
   //playSong(song: Isongs): void {
