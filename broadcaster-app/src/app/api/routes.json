@@ -1,0 +1,5 @@
+{
+  "/api/*": "/$1",
+  "/payload/:id": "/payload/:id",
+  "/songs/*": "/$1"
+}
