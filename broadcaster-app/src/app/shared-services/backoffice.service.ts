@@ -16,8 +16,7 @@ export class BackOfficeService {
 
   }
 
-  url = '/api/payload/';
-  getUrl = '/api'
+  url = '/payload/';
 
 
   getArtists(): Observable<Iartists[]> {
@@ -45,11 +44,13 @@ export class BackOfficeService {
   }
 
   loadAllSongs(value: string = ''): Observable<Isongs[]> {
+    debugger
 
-
-    return this.http.get<Isongs[]>(`/api/payload/?q=${value}`)
+    return this.http.get < { payload:Isongs[]} >(`/payload/?q=${value}`)
       .pipe(
-        tap(_ => console.log(`fetched value q=${value}`)))
+        map(res=>res.payload),
+          tap(_ => console.log(`fetched value q=${value}`))
+        );
 
 
   }

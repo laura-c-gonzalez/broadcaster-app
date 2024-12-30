@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule, JsonPipe } from '@angular/common';
 import { AppComponent } from './app.component';
@@ -38,14 +39,14 @@ import { AppRoutes } from './app.routes';
     ReactiveFormsModule,
     loginModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
     //BrowserAnimationsModule,
     //AllInOneModuleModule
   ],
   exports: [
     AppComponent,
   ],
-  providers: [AuthStore],
+  providers: [AuthStore, provideHttpClient(withFetch())],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 {
-  "/api/*": {
+  "/payload/*": {
     "target": "http://localhost:3000"
   }
 }

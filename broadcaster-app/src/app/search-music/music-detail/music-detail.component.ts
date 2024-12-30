@@ -23,7 +23,8 @@ export class MusicDetailComponent {
 
   ngOnInit() {
 
-    this.subjectKeyUp.pipe(debounceTime(1000),
+    this.subjectKeyUp.pipe(
+      debounceTime(1000),
       distinctUntilChanged())
       .subscribe(d => {
         this.loadCourses(d);
@@ -39,10 +40,10 @@ export class MusicDetailComponent {
   }
 
   loadCourses(value: string = '') {
-
+    debugger
     //this.songs$ = this.backofficeService.getSongsById(id);
 
-    this.songs$ = this.backofficeService.loadAllSongs(value)
+    this.songs$ = this.backofficeService.loadAllSongs(value);
 
   }
 
